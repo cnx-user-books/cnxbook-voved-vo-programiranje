@@ -1,0 +1,129 @@
+<document xmlns="http://cnx.rice.edu/cnxml">
+  <title>Низи-едноиндексни полиња</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m47838</md:content-id>
+  <md:title>Низи-едноиндексни полиња</md:title>
+  <md:abstract>Низата како едноиндексно поле се користи и е погодна за пресметки со пообемни податоци бидејќи податоците во низа имаат исто име, а се разликуваат само по својата позиција-индекс кој е природен или цел број. Тоа овозможува лесно оперирање со податоците од низите бидејќи во пресметките се оперира само со нивните индекси.</md:abstract>
+  <md:uuid>7e6c1489-3c1a-404d-bed5-8cac84e47e5d</md:uuid>
+</metadata>
+
+<content>
+    <section id="import-auto-id6186715">
+      <title>Низи-едноиндексни полиња</title><para id="import-auto-id2277872">Што е низа во програмските јазици?</para><list id="import-auto-id2296060" list-type="bulleted">
+        <item>
+          <emphasis>Низите се структурирани податочни типови</emphasis>
+        </item>
+        <item>
+          <emphasis>колекција од повеќе индивидуални елементи со заедничко име</emphasis>
+        </item>
+        <item>
+          <emphasis>овозможуваат пристап до индивидуалните елементи во низата</emphasis>
+        </item>
+      </list>
+      <para id="import-auto-id1170725062460">За да се организираат повеќе податоци од ист тип, може да се креираат повеќе променливи и на секој податок му се доделува промелива. Но тоа е фукционално само ако се оперира со ограничен број променливи.</para><para id="eip-679">На пример, со програмскиот сегмент се собираат вредностите на три податока</para><code id="eip-870" display="block">int  prom1,  prom2,  prom3;
+int  suma;
+scanf(“%d%d%d”,&amp;prom1,&amp;prom2,&amp;prom3);
+suma =  prom1 + prom2 + prom3;</code><para id="import-auto-id1170724991084">Но ако е потребнo да оперираме со многу повеќе променливи од исти тип (на пр. 100, 1000, ...), потребен е поинаков приод. За таа цел се формира низа од повеќе променливи од ист тип.</para><para id="import-auto-id1170726165776">Низа е структура со релациски поврзани податоци, при што</para><list id="import-auto-id6256677" list-type="bulleted">
+        <item>бројот на елементи е однапред познат</item>
+        <item>сите елементи се променливи од ист тип</item>
+      </list>
+      <para id="import-auto-id1170724600491"><title>Дефиниција:</title><emphasis>Низа е колекција од променливи од ист тип сместени во низа последователни мемориски локации, на кои им е доделено единствено име.</emphasis>
+      </para><para id="import-auto-id5793988">Низите уште се нарекуваат едноиндексни или еднодимензионални полиња.</para><para id="import-auto-id1170725009344">За пристап до кој и да е елемент од полето се користи името и позицијата на елементот во полето, а позицијата се одредува со индекс.</para><para id="import-auto-id1170724832703">Според бројот на индекси полињата се делат на</para>
+      <list id="import-auto-id1170724979071" list-type="bulleted">
+        <item>едноиндексни (полиња), </item>
+        <item>двоиндексни (матрици), итн..</item>
+      </list>
+      <figure id="import-auto-id4820260">
+        <media id="import-auto-id1170726078915" alt="">
+          <image mime-type="image/png" src="../../media/Object 2.png" height="406" width="165"/>
+        </media>
+      </figure>
+      <section id="import-auto-id1170725221332">
+        <title>Декларирање на едноиндексно поле</title><para id="import-auto-id1170725122316">Секогаш кога во програма се користи поле, на почетокот од програмата тоа се декларира. За негово декларирање потребно е неговото име, типот на елементите (променливите) и бројот на елементи во полето.</para><para id="import-auto-id1170724859167">Формат на наредбата за декларирање е</para><code id="eip-278" display="block">tip ImePole[BrojNaElementi];</code><para id="import-auto-id1170725080556">Примери за декларирање на поле:</para>
+        <code id="eip-153" display="block">int c[10];  float moePole[3284]; double Tez[100]; int b[100], x[27]; </code><example id="eip-819"><title>Пример 1.</title><para id="eip-752">Да се дефинира едноиндексно поле temps што содржи 5 реални вредности.
+</para><para id="eip-211">Со наредбата</para><code id="eip-250" display="block">float  temps[5]; </code><para id="eip-354">се декларира поле temps со пет реални вредности, а тоа значи резервирање мемориски простор</para><para id="eip-255"><figure id="cute-dog"><media id="import-auto-id1170725237222" alt="">
+            <image mime-type="image/png" src="../../media/Object 3.png" height="108" width="537"/>
+          </media>
+        
+  
+<caption>
+  </caption></figure></para></example></section>
+      <section id="import-auto-id1170725268940">
+        <title>Иницијализација на едноиндексно поле</title><para id="import-auto-id1170724964352">Во наребата за декларација може да се иницијализираат и елементите на полето како што е наведено со следните две наредби:</para><code id="eip-788" display="block">int p[10] ={1, 2, 3, 4, 5, 6, 7, 8, 9, 10}, n[5] = {1, 2, 3, 4, 5 }; 
+
+float broevi[4] = {1.0, 0.3, 2.25, 4.5};
+
+</code><para id="import-auto-id1170724959791">Ако не се внесат доволно вредности за сите елементи од полето, најдесните елементи се иницијализираат на 0 како на пример:</para><code id="eip-540" display="block">int a[5] = {0,1,3};   /* preostanatite elementi se 0 */
+
+int b[10]={0};  /*najednostaven nacin za inicijalizacija na site vrednosti na 0 */
+
+int c[80] = {95};  /* prviot element ima vrednost 95, a site ostanati 0 */
+
+</code><para id="import-auto-id1170725132245">Ако не е определена големината на полето, тогаш истата ја определува компјутерот</para>
+        <para id="import-auto-id1170724968734">int n[] = { 1, 2, 3, 4, 5 };  - 5 почетни вредности, согласно полето ќе биде декларирано како поле со 5 елемента</para>
+        <para id="import-auto-id1170724998292">int pogodi[] = {1,3,5,7,11,13}; - поле со 6 елементи</para>
+        <para id="import-auto-id1170725304106">int golemina[] = {3, 1, 5, 99, 18, -1}; - поле со 6 елементи</para>
+      </section>
+      <section id="import-auto-id1170725257038">
+        <title>Пристап до елемент на едноиндексно поле</title><para id="import-auto-id1170725116124">За да се добие или промени елемент од полето, потребно е да се определи име на полето и позицијата на елементот во полето. Форматот на елемент од полето е</para><code id="eip-191" display="block">imePole[IndeksPozicija]</code><para id="import-auto-id1170724824660">Поле со n елементи и име alfa е:  </para><para id="import-auto-id1170725114038">alfa[0], alfa[1]...alfa[n-1]</para><list id="import-auto-id8926756" list-type="bulleted">
+          <item>првиот елемент се наоѓа на позиција (има индекс) 0, вториот на позиција (има индекс) 1, итн.</item>
+          <item>индекс на поле може да биде само целобројна вредност</item>
+          <item>одговорност на програмерот е да обезбеди индексот да биде во интервалот [0,n-1]</item>
+        </list>
+        <para id="import-auto-id1170725996682">Поле може да се иницијализира и со следната низа наредби:</para><code id="eip-592" display="block">int i, n[10];
+
+for (i=0; i&lt;10; i++) n[i] = i;</code><example id="eip-261"><title>Пример 2.</title><para id="eip-439">Програмски сегмент за собирање на вредностите на елементите на две полиња и нивно сместување во трето поле:
+</para><code id="eip-943" display="block">for(i=0; i&lt;n; i++) 
+c[i]=a[i]+b[i];
+</code></example><example id="eip-677"><title>Пример 3.</title><para id="eip-19">Операторот што го одредува индексот има најголем приоритет, поради што во следниот израз 
+</para><code id="eip-188" display="block">a[2]++ 
+</code><para id="eip-661">компјутерот ќе ја зголеми вредноста на променливата што се наоѓа на третата позиција во полето за 1.</para></example><example id="eip-948"><title>Пример 4.</title><para id="eip-538">Да се најде минимален елемент во низа.
+</para><para id="eip-827"><title>Програма:</title></para><code id="eip-140" display="block">#include &lt;stdio.h&gt;
+
+int main() 
+{
+     int min, i, pole[20];
+     for(i = 0; i &lt; 20; i++) 
+     {
+           printf(“Vnesete element %d:i”, i);
+           scanf(“%d”, &amp;pole[i]); 
+     }
+     min = pole[0];
+     for(i = 0; i &lt; 20; i++) 
+     {
+           if (pole[i]&lt;min) min = pole[i];
+     }  
+     
+     printf(“Minimalen e elementot %d ”, min); 
+     return 0;
+}
+
+   
+</code></example><example id="eip-342"><title>Пример 5.</title><para id="eip-811">Да се изброи колку елементи од една низа припаѓаат на даден интервал.</para><para id="eip-632"><title>Програма:</title></para><code id="eip-132" display="block">#include &lt;stdio.h&gt;
+
+int main() 
+{
+      int pocetok, kraj, i, pole[50], brojac = 0;
+      printf (“Vnesi vrednoti za pocetok i kraj na intervalot”);
+      scanf (“%d %d”, &amp;pocetok, &amp;kraj);
+      
+      for(i = 0; i &lt; 50; i++) 
+      {
+              printf(“Vnesete element %d:i”, i);
+              scanf(“%d”, &amp;pole[i]); 
+      }
+      for(i = 0; i &lt; 50; i++) 
+      {
+              if (pole[i]&gt;pocetok &amp;&amp; pole[i]&lt;kraj) brojac++;
+      }
+      
+      printf(“Vkupno elementi vo intervalot ima %d ”, brojac); 
+      return 0;
+}
+
+
+
+</code></example></section>
+    </section>
+  </content>
+</document>

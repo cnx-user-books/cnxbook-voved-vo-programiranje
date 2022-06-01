@@ -1,0 +1,34 @@
+<document xmlns="http://cnx.rice.edu/cnxml">
+  <title>Упатство за работа за DEV CPP</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m46134</md:content-id>
+  <md:title>Упатство за работа за DEV CPP</md:title>
+  <md:abstract>Упатство за работа со компајлер во програмскиот јазик Ц.</md:abstract>
+  <md:uuid>1f1f6990-8e7e-4fac-a2d8-2f658b7c3767</md:uuid>
+</metadata>
+
+<content>
+    <section id="import-auto-id1171944097867">
+      <title>Упатство за работа за DEV CPP</title>
+      <list id="import-auto-id1171951569178" list-type="enumerated" number-style="arabic">
+        <item>Се вклучува Start  All Programs &gt; Bloodshed DEV C++</item>
+        <item>Се оди на опцијата File &gt; New &gt; Project</item>
+        <item>Се избира Console Application, се избира C Project и се именува проектот, пример: Zadaca1 (наставка ќе си додаде и сам)</item>
+        <item>Потоа прашува каде да се сними, се избира фолдер по ваш избор</item>
+        <item>Се пишува кодот во изворниот фајл. Програмата сама генерира бланко изворна датотека од следниот облик:</item>
+      </list>
+      <para id="import-auto-id1171952314561">#include &lt;stdio.h&gt;</para>
+      <para id="import-auto-id1171975688532">#include &lt;stdlib.h&gt;</para>
+      <para id="import-auto-id1171952437096">int main(int argc, char *argv[])</para>
+      <para id="import-auto-id1171944153288">{</para>
+      <para id="import-auto-id1171952293588">/* OVDE SE PISIVA VASIOT KOD */</para>
+      <para id="import-auto-id1171952253953"> system("PAUSE");</para>
+      <para id="import-auto-id1171944173960"> return 0;</para>
+      <para id="import-auto-id1171952239659">}</para>
+      <list id="import-auto-id1171953856360" list-type="enumerated" number-style="arabic">
+        <item>Се компајлира и извршува со притискање на  F9 или на опцијата од менито Execute &gt; Compile &amp; Run</item>
+        <item>Ако станува збор за првото извршување на новата програма, ќе ни понуди најпрво да ја сними датотеката со изворниот код, со име main.c, но треба да го преименуваме со наше ново име. Пример: zadaca1.c (наставка C ќе си додаде и сам.)</item>
+      </list>
+    </section>
+  </content>
+</document>

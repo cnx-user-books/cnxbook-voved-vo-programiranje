@@ -1,0 +1,161 @@
+<document xmlns="http://cnx.rice.edu/cnxml">
+  <title>Вежба-1</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45182</md:content-id>
+  <md:title>Вежба-1</md:title>
+  <md:abstract>Воведување на концептите за константи и променливи и структура на програма во програмскиот јазик C.</md:abstract>
+  <md:uuid>d9511b21-e4b0-40d4-9f10-2d2e7703464d</md:uuid>
+</metadata>
+
+<content>
+    <section id="id1169067008831">
+      <title>Програмски јазик C - ВЕЖБА 1</title>
+      <section id="id1169052645253">
+        <title>Почетни задачи</title>
+        <section id="id1169052082231">
+          <title>1. Структура на програма во C</title>
+          <example id="oo-id1169055232594">
+            <code id="eip-602" display="block">int main()
+{
+	//telo na programata
+}
+</code>
+            
+            
+            
+          </example>
+          <para id="eip-746">main() – главна програма
+//telo na programata – место каде се пишуваат командите кои сакаме компјутерот да ги изврши. Истите се одделуваат со знакот ;
+</para>
+          
+          
+        </section>
+        <section id="id1169048921418">
+          <title>2. Вклучување на библиотеки (библиотечни функции)</title>
+          <example id="eip-814"><code id="eip-101" display="block">#include&lt;stdio.h&gt;
+int main()
+{
+}
+</code>
+</example>
+          <para id="id1169054021877">Со наредбата #include&lt;stdio.h&gt; ги вклучуваме функциите за приказ на екран и внес од тастатруа во нашата програма.</para>
+        </section>
+        <section id="id1169054313512">
+          <title>3. Приказ на екран со користење на функцијата printf()</title>
+          
+          <example id="eip-794"><code id="eip-177" display="block">#include&lt;stdio.h&gt;
+int main()
+{
+	printf(“Programski jazik C”);
+	system(“pause”);
+}
+</code>
+</example><para id="id1169065579288">Доколку се изврши горенаведената програма на екран се печати: Programski jazik C</para>
+          
+        </section>
+        <section id="id1169048183299">
+          <title>4. Приказ на екран со користење на функцијата printf()</title>
+          <example id="oo-id1169068262570">
+            
+            <code id="eip-653" display="block">#include&lt;stdio.h&gt;
+int main()
+{
+	printf(“Po zavrsuvanje na semestarot site ke znaeme”); 
+	printf(“ da programirame vo programskiot jazik C”);
+	system(“pause”);
+}
+</code>
+            
+            
+            
+            
+          </example>
+          <para id="id1169048192901">Доколку се изврши горенаведената програма на екран се печати: Po zavrsuvanje na semestarot site ke znaeme da programirame vo programskiot jazik C</para>
+          
+        </section>
+        <section id="id1169052160463">
+          <title>5. Концепција на променлива</title>
+          
+          <example id="eip-717"><code id="eip-23" display="block">#include&lt;stdio.h&gt;
+int main()
+{
+	int a;
+	a=16;
+	printf(“vrednosta na promenlivata a e %d”, a);
+	system(“pause”);
+}
+</code>
+</example><para id="id1169054802080">Со наредбата int a; се дефинира променлива од целоброен тип (int). Таа се иницијализира со вредноста 16 со помош на наредбата а=16;.</para>
+          <para id="id1169052680484">Со наредбата  printf(“vrednosta na promenlivata a e %d”, a); на екран се испишува:</para>
+          <para id="id1169054313551">vrednosta na promenlivata a e 16</para>
+          <para id="id1169060467575">Aко се направи промената:</para>
+          <example id="oo-id1169049973549">
+            <code id="eip-55" display="block">#include&lt;stdio.h&gt;
+int main()
+{
+     int a;
+     a=3;
+     printf(“vrednosta na promenlivata a e %d”, a);
+     system(“pause”);
+}</code></example>
+          <para id="id1169051547785">вредноста на променливата а во овој случај ќе биде 3 и на екран ќе се испечати:</para><para id="eip-341">vrednosta na promenlivata a e 3</para>
+          </section>
+        <section id="id1169053874900">
+          <title>6. Концепција на константа</title>
+          <example id="oo-id1169054023314">
+            <code id="eip-691" display="block">#include&lt;stdio.h&gt;
+int main()
+{
+     const int k = 7;
+     printf(“vrednosta na konstantata k e %d”, k);
+     system(“pause”);
+}</code></example>
+          <para id="id1169054021884">Со наредбата const int k; се дефинира константа од целоброен тип (int). Нејзината вредност е 7.</para>
+          <para id="id1169053475842">Со наредбата  printf(“vrednosta na konstantata k e %d”, k); на екран се испишува:</para>
+          <para id="id1169053830503">vrednosta na konstantata k e 7</para>
+          <para id="id1169054312695">Вредноста на констатите неможе да се менува. Ако се напише следната програма:</para>
+          <example id="oo-id1169065578768">
+            <code id="eip-393" display="block">#include&lt;stdio.h&gt;
+int main()
+{
+     const int k;
+     k=8;
+     printf(“vrednosta na konstantata k e %d”, k);
+     system(“pause”);
+}
+</code></example>
+          <para id="id1169054434416">Програмата ќe јави грешка (вредноста на констатите неможе да се менува).</para>
+        </section>
+        <section id="id1169054458554">
+          <title>7. Збир на две променливи</title>
+          <para id="id1169065302048">Верзија 1</para>
+          <example id="oo-id1169054017655">
+            <code id="eip-299" display="block">#include&lt;stdio.h&gt;
+int main()
+{
+     int a, b;
+     a=10;
+     b=12;
+     printf(“zbirot na promenlivite a i b e %d”, a+b);
+     system(“pause”);
+}</code></example>
+          <para id="id1169052643541">Оваа програма на екран ќе испечати:</para>
+          <para id="id1169054493381">zbirot na promenlivite a i b e 22</para>
+          <para id="id1169076240271">Верзија 2</para>
+          <example id="oo-id1169054018452">
+            <code id="eip-810" display="block">#include&lt;stdio.h&gt;
+int main()
+{
+    int a, b;
+    a=10;
+    b=12;
+    printf(“%d + %d = %d”, a, b, a+b);
+    system(“pause”);
+}</code></example>
+          <para id="id1169066001333">Оваа програма на екран ќе испечати:</para>
+          <para id="id1169054324510">10 + 12 = 22</para>
+        </section>
+      </section>
+    </section>
+  </content>
+</document>

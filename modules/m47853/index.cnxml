@@ -1,0 +1,166 @@
+<document xmlns="http://cnx.rice.edu/cnxml">
+  <title>Матрици-двоиндексни полиња</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m47853</md:content-id>
+  <md:title>Матрици-двоиндексни полиња</md:title>
+  <md:abstract>Се покажува како во програмскиот јазик C се користат матриците: како се декларираат, означуваат, иницијализираат и како се пристапува до нив.</md:abstract>
+  <md:uuid>ec38f2e1-4e67-4a71-b14a-bb7901e94453</md:uuid>
+</metadata>
+
+<content>
+    <section id="import-auto-id1171229441599">
+      <title>Матрици-двоиндексни полиња</title>
+      <para xmlns:m="http://www.w3.org/1998/Math/MathML" id="import-auto-id1171197071340">Матрица или двоиндексно поле е правоаголна шема од елементи со заедничко име и два индекса кои го определуваат местото на секој елемент во матрицата преку позицијта на редот и колоната во матрицата. На пример, ознака за матрица е <m:math><m:semantics><m:mrow><m:mrow><m:mrow><m:mi>A</m:mi><m:mo stretchy="false">(</m:mo><m:mrow><m:mi>i</m:mi><m:mo stretchy="false">×</m:mo><m:mi>j</m:mi></m:mrow><m:mo stretchy="false">)</m:mo></m:mrow></m:mrow><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{A \( i times j \) } {}</m:annotation></m:semantics></m:math>, каде <m:math><m:semantics><m:mrow><m:mrow><m:mi>A</m:mi></m:mrow><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{A} {}</m:annotation></m:semantics></m:math> е името на матрицата, <emphasis effect="italics">i</emphasis> - е бројот на редици, <emphasis effect="italics">j</emphasis> - е бројот на колони. Оваа матрица ќе има вкупно <emphasis effect="italics"> i </emphasis> x <emphasis effect="italics">j</emphasis>  елементи. Секој елемент <m:math><m:semantics><m:mrow><m:mrow><m:msub><m:mi>a</m:mi><m:mrow><m:mrow><m:mi>i</m:mi><m:mi>,</m:mi><m:mi>j</m:mi></m:mrow></m:mrow></m:msub></m:mrow><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{a rSub { size 8{i,j} } } {}</m:annotation></m:semantics></m:math> од матрицата А во програмскиот јазик C  се означува со <m:math><m:semantics><m:mrow><m:mrow><m:mrow><m:mi>a</m:mi><m:mo stretchy="false">[</m:mo><m:mi>i</m:mi><m:mo stretchy="false">]</m:mo><m:mo stretchy="false">[</m:mo><m:mi>j</m:mi><m:mo stretchy="false">]</m:mo></m:mrow></m:mrow><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{a \[ i \]  \[ j \] } {}</m:annotation></m:semantics></m:math>.</para><figure id="import-auto-id1171231977405"><media id="import-auto-id1171230215041" alt="">
+          <image mime-type="image/jpg" src="../../media/graphics1-8eea.jpg" height="247" width="585"/>
+        </media>
+      <caption>Матрица А (3х3)</caption></figure><para id="eip-5">При користење на матрица во програма се врши нејзина декларација, а во декларацијата на матрица прво се определува имато, потоа редиците, па потоа колоните во формат:</para><para id="eip-762"><emphasis>tip Ime [ Redovi ] [ Koloni ];</emphasis>
+      </para><section id="import-auto-id1171222004975">
+        <title>Иницијализација на вредностите од матрица</title>
+        <para id="import-auto-id1171196821337">Матриците може да се иницијализираат со декларацијата:</para>
+        <code id="eip-657" display="block">int mat[2][2] = {{1,2},{3,4}};
+
+</code><para id="eip-72">или</para><code id="eip-537" display="block">int mat [3][4] = { 
+                  {100, 101, 102, 103},
+                  {104, 105, 106, 107},
+                  {108, 109, 110, 111}
+                 }; 
+
+</code></section>
+      <section id="import-auto-id1171232332447">
+        <title>Пристап до елемент од матрица</title>
+        <para id="import-auto-id1171215023332">До елемент од матрица се пристапува преку неговото име и по него се задава редот, а потоа колоната во која припаѓа елементот. </para><para id="import-auto-id1171197729434">Форматот е:  </para><code id="eip-552" display="block">imePole[IndeksRED][IndeksKOLONA]
+
+</code><example id="eip-731"><title>Пример 1.</title><para id="eip-359">Со наредбата</para><code id="eip-366" display="block">printf( "%d", b[0][1] );
+
+</code><para id="eip-331">се печати елементот b[0][1]</para></example><example id="eip-835"><title>Пример 2.</title><para id="eip-285">Да се прочита и отпечати квадратна матрица (бројот на редови и колони е ист) со вредности на елементите кои ќе се внесат преку тастатура.
+</para><para id="eip-89"><title>Програма:</title></para><code id="eip-521" display="block">#include &lt;stdio.h&gt;
+#define RED 10
+#define KOLONA 3
+
+int main()
+{
+      int n,a[MAX][MAX], i, j;
+
+      printf("Dimenzija: ");
+      scanf("%d",&amp;n);
+
+      printf("Vnesi gi elementite\n");
+      for (i=0; i&lt;n; i++)
+            for (j=0; j&lt;n; j++)
+                  scanf("%d",&amp;a[i][j]);
+
+      printf("Pecatenje\n");
+      for (i=0; i&lt;n; i++)
+            {
+            for (j=0; j&lt;n; j++)
+                 {
+                     printf("%d\t",a[i][j]);
+                 }
+            printf("\n");
+            }
+      return 0;
+}
+
+ </code></example><example id="eip-670"><title>Пример 3.</title><para id="eip-533">Да се формира матрица со елементи чии вредности се формираат преку сумата  на индексите на елементот од дадената позиција.
+</para><para id="eip-574"><title>Програма:</title></para><code id="eip-369" display="block">#include &lt;stdio.h&gt;
+#define MAX 10
+
+int main()
+{
+
+      int red, kol, pole[RED][KOLONA];
+
+      for(red=0; red&lt;RED; red++)
+          for(kol=0; kol&lt;KOLONA; kol++) 
+               pole[red][kol]=red+kol;
+
+      for(red=0; red&lt;RED; red++)
+          for(kol=0; kol&lt;KOLONA; kol++) 
+              printf(“Vektor[%d][%d] = %d”, red, kol, vek[red][kol]);
+
+      return 0;
+}
+
+</code></example><example id="eip-426"><title>Пример 4.</title><para id="eip-984">Да се прочита една квадратна матрица, а потоа да се помножат сите парни елементи со 2,  а сите непарни со 3  и да се отпечати резултантната матрица.
+</para><para id="eip-634"><title>Програма:</title></para><code id="eip-501" display="block">#include &lt;stdio.h&gt;
+#define RED 10
+#define KOLONA 3
+int main()
+{
+
+      int n,a[MAX][MAX], i, j;
+      
+      printf("Dimenzija: ");
+      scanf("%d",&amp;n);
+
+      printf("Vnesi gi elementite\n");
+      for (i=0; i&lt;n; i++)
+            for (j=0; j&lt;n; j++)
+                  scanf("%d",&amp;a[i][j]);
+
+      for (i=0; i&lt;n; i++)
+            for (j=0; j&lt;n; j++)
+            {
+                 if (a[i][j]%2==1) 
+                       a[i][j]*=3;
+                 else
+                       a[i][j]*=2;
+            }
+
+
+      printf("Pecatenje\n");
+      for (i=0; i&lt;n; i++)
+      {
+            for (j=0; j&lt;n; j++)
+            {
+                 printf("%d\t",a[i][j]);
+            }
+            printf("\n");
+      }
+
+      return 0;
+}
+
+         </code></example><example id="eip-929"><title>Пример 5.</title><para id="eip-981">Да се прочита една квадратна матрица, да се помножат сите елементи од главната дијагонала со 10,  а сите елементи од споредната дијагонал да се поделат со 5 и да се отпечати резултантната матрица.
+</para><para id="eip-544"><title>Програма:</title></para><code id="eip-414" display="block">#include &lt;stdio.h&gt;
+#define RED 10
+#define KOLONA 3
+int main()
+{
+
+      int n, a[MAX][MAX], i, j; 
+
+      printf("Dimenzija: ");
+      scanf("%d",&amp;n);
+
+      printf("Vnesi gi elementite\n");
+      for (i=0; i&lt;n; i++)
+            for (j=0; j&lt;n; j++)
+                  scanf("%d",&amp;a[i][j]);
+
+      for (i=0; i&lt;n; i++)
+            for (j=0; j&lt;n; j++)
+            {
+                 if (i==j) 
+                       a[i][j]*=10;
+                 else if (i+j==n-1) 
+                       a[i][j]/=5;
+            }
+ 
+      printf("Pecatenje\n");
+      for (i=0; i&lt;n; i++)
+      {
+            for (j=0; j&lt;n; j++)
+            {
+                 printf("%d\t",a[i][j]);
+            }
+             printf("\n");
+      }
+
+      return 0;
+}
+
+  </code></example></section>
+    </section>
+  </content>
+</document>

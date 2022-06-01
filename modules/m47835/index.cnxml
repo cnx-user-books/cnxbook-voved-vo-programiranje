@@ -1,0 +1,231 @@
+<document xmlns="http://cnx.rice.edu/cnxml">
+  <title>Задачи со циклуси</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m47835</md:content-id>
+  <md:title>Задачи со циклуси</md:title>
+  <md:abstract>Се прикажуваат повеќе задачи за чија програмска реализација се користат структури за повторување-циклуси.</md:abstract>
+  <md:uuid>9c155260-917f-4b1f-a439-e35285a5c6b0</md:uuid>
+</metadata>
+
+<content>
+    <example id="eip-221"><title>Пример 1.</title><para id="eip-249">Да се состави програма која ќе ги испечати првите 10 природни броја.</para><para id="eip-797"><title>Програма:</title></para><code id="eip-591" display="block">#include &lt;stdio.h&gt;
+
+main()
+{
+     int i=1;  
+
+     while (i &lt;= 10)
+     {
+          printf ("i e %i\n", i);
+          i++
+     }
+}</code></example><example id="eip-854"><title>Пример 2.</title><para id="eip-197">Да се испечатат сите едноцифрени парни броеви. 
+</para><para id="eip-323"><title>Програма:</title></para><code id="eip-483" display="block">#include &lt;stdio.h&gt;
+
+main()
+{
+     int i=1; 
+     
+     while (i &lt;= 10)
+     {
+         if (i%2==0) printf ("i e %i\n", i);
+         i++
+     }
+}</code></example><example id="eip-290"><title>Пример 3.</title><para id="eip-547">Да се состави програма која ќе ја пресмета средната вредност на пет броеви кои се внесуваат преку тастатура.
+</para><para id="eip-851"><title>Програма:</title></para><code id="eip-155" display="block">#include &lt;stdio.h&gt;
+
+int main()
+{
+     int n = 1; 
+     int broj, suma= 0;
+     while( n &lt;= 5 )
+     {
+          printf( "Vnesi broj: ");
+          scanf("%d", &amp;broj);
+          suma+= broj;
+          n++;
+     }
+     printf("\nSredna vrednost na vnesenite broevi "
+     “e %f\n", (float)suma/(n-1));
+     return(0);
+}
+
+</code></example><example id="eip-562"><title>Пример 4.</title><para id="eip-397">Да се испечатат сите броеви деливи со 3 и помали од 1000. Да се преброи колку такви броеви има:
+</para><para id="eip-751"><title>Програма:</title></para><code id="eip-877" display="block">#include&lt;stdio.h&gt;
+
+int main()
+{
+     int n = 1;
+     int vkupno = 0;
+     while( n &lt;= 1000 )
+     {
+          if (n%3==0) 
+                {
+                     printf(“%d\n”,n);
+                     vkupno++;
+                }
+     }
+     printf(“Vlupno takvi broevi ima %d\n”,vkupno);
+     return(0);
+}
+     
+</code></example><example id="eip-46"><title>Пример 5.</title><para id="eip-291">Да се напише програма за пресметување на y = x<sup>n</sup> за даден природен број n и релаен број x.  
+</para><para id="eip-182"><title>Програма:</title></para><code id="eip-371" display="block">#include&lt;stdio.h&gt;
+
+int main()
+{
+     int brojac, n;
+     float x, y;
+     printf(“vnesi vrednost za osnovata: “);scanf(“%f”, &amp;x);
+     printf(“vnesi vrednost za eksponentot: “);scanf(“%d”, &amp;n);
+     y = x;
+     brojac = 1;
+     while (brojac &lt; n)
+     {
+         y *= x;
+         brojac++;
+     }
+     printf(“%f^%d = %f\n”, x, n, y);
+return 0;
+}
+
+</code></example><example id="eip-962"><title>Пример 6.</title><para id="eip-379">Да се напише програма која од n броеви (внесени од тастатура) ќе го определи бројот на броеви што се деливи со 3, како и бројот на броеви за кои при делењето со 3 имаат остаток 1, односно 2. </para><para id="eip-680"><title>Програма:</title></para><code id="eip-161" display="block">#include&lt;stdio.h&gt;
+
+int main()
+{
+     int  n, i, broj, del, os1, os2;
+     del = os1 = os2 = 0;
+     printf(“Kolku broevi treba da se proveruvaat za delivost so 3?\n”);
+     scanf(“%d”, &amp;n);
+     i = 1;
+     do
+     {
+          printf(“Vnesete broj za proverka: “);
+          scanf(“%d”, &amp;broj);
+          if ( broj % 3 == 0) del++;
+          else if ( broj % 3 == 1) os1++;
+               else os2++;
+          i++;
+     }
+     while (i &lt;= n);
+     printf(“%d broevi se delivi so 3.\n“, del);
+     printf(“%d broevi imaat ostatok 1, pri delenje so 3.\n“, os1);
+     printf(“%d broevi imaat ostatok 2, pri delenje so 3.\n“, os2);
+return 0;
+}
+
+
+</code></example><example id="eip-740"><title>Пример 7.</title><para id="eip-927">Да се напише програма која за даден природен број m ќе ги испише сите броеви помеѓу 1 и 1000 за кои сумата на цифрите изнесува m. 
+</para><para id="eip-476"><title>Програма:</title></para><code id="eip-517" display="block">#include &lt;stdio.h&gt;
+
+int main ()
+{
+      int  m, i, j, pom, suma, cifra;
+      printf(“Vnesete go brojot m za sporedba: “);
+      scanf(“%d”, &amp;m);
+      if (m &gt; 27) printf(“Ne postoi broj od 1 do 1000 so suma %d.\n”, m);
+      else
+      {
+           printf(“Broevi cij zbir na cifri e %d se: \n”, m);
+           i = 1;
+           while (i&lt;=1000)
+           {
+                pom = i; suma = 0;
+                while (n &gt; 0) 
+                {
+                     cifra = pom % 10;
+                     suma += cifra;
+                     pom /= 10;
+                }
+                if (suma == m) printf(“%d\t”, i);
+                i++;
+           }
+      }
+      return 0;
+}</code><note id="eip-729"><title>ВАЖНА ЗАБЕЛЕШКА!!!</title>Да се нагласи зошто е потребно користењето на променливата pom.</note></example><example id="eip-698"><title>Пример 8.</title><para id="eip-615">Да се испечатат сите броеви од 1000 до 100000 кои се деливи со 9.
+</para><para id="eip-438"><title>Програма:</title></para><code id="eip-103" display="block">#include &lt;stdio.h&gt;
+
+int main ()
+{
+      int  i;
+      for(i=1000; i &lt; 10000; i++)
+           if (i%9==0) 
+                 printf(“%d\n”, i);
+      return 0;
+}</code></example><example id="eip-705"><title>Пример 9.</title><para id="eip-775">Да се испечатат и избројат сите природни броеви деливи со 3 чиј квадрат е помал од 1000.
+</para><para id="eip-433"><title>Програма:</title></para><code id="eip-808" display="block">#include &lt;stdio.h&gt;
+
+int main ()
+{
+     int i;
+     int vkupno = 0;
+     for(i=1; i*i &lt; 1000; i++)
+               if (i%3==0) 
+               { 
+                    printf(“%d\n”, i);
+                    vkupno++;
+               }
+           printf(“Vkupno broevi ima %d\n”, vkupno); 
+     return 0;
+}</code></example><example id="eip-992"><title>Пример 10.</title><para id="eip-576">Сите целобројни вредности за Целзиусови степени од 0 до 100 да се претстават во Келвини.
+</para><para id="eip-426"><title>Програма:</title></para><code id="eip-309" display="block">#include &lt;stdio.h&gt;
+
+int main ()
+{
+     int i;
+     for(i=1; i &lt;= 100; i++)
+            printf(“%d\n”, i+273);
+     return 0;
+}</code></example><example id="eip-719"><title>Пример 11.</title><para id="eip-285">Да се напише програма која ќе ги испечати сите броеви од зададен опсег кои исто се читаат и од лево на десно и од десно на лево. 
+</para><para id="eip-718"><title>Програма:</title></para><code id="eip-884" display="block">#include &lt;stdio.h&gt;
+
+int main ()
+{
+      int  i, odb, dob, pom, prev, cifra;
+      printf(“Vnesete vrednost za opsegot.\n”);
+      printf(“Od koj broj?\n”); scanf(“%d”, &amp;odb);
+      printf(“Do koj broj?\n”); scanf(“%d”, &amp;dob);
+      for (i = odb; i &lt;= dob; i++) 
+      {
+             pom = i;
+             prev = 0;
+                  while (pom &gt; 0) 
+                  {
+                       cifra = pom % 10;
+                       prev=prev*10 + cifra;
+                       pom /= 10;  
+                  }
+                  if (prev == i) printf(“%d\t”, i);
+
+      }
+      return 0;
+} 
+</code></example><example id="eip-427"><title>Пример 12.</title><para id="eip-223">Да се напише програма која ќе ги испечати сите броеви помали од број N составени само од парни цифри и ќе врати колку такви броја има. 
+</para><para id="eip-152"><title>Програма:</title></para><code id="eip-475" display="block">#include &lt;stdio.h&gt;
+
+int main ()
+{
+      int  i, n, pom, prov, cifra, brojac;
+      printf(“Do koj broj treba da se proveruva?\n”);
+      scanf(“%d”, &amp;n);
+      brojac = 0;
+      for (i = 1; i &lt;= n; i++) 
+      {
+            prov = 1;
+            pom = i;
+            while ((pom &gt; 0) &amp;&amp; prov) 
+            {
+                 cifra = pom % 10;
+                 if (cifra % 2) prov = 0;
+                 pom /= 10;
+            }
+            if (prov) 
+            {
+                 printf(“%d\t”, i);
+                 brojac++;
+            }
+      }
+      printf(“\nIma vkupno %d broevi so samo parni cifri\n”, brojac);
+      return 0;
+}</code></example></content>
+</document>

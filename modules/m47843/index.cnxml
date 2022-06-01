@@ -1,0 +1,391 @@
+<document xmlns="http://cnx.rice.edu/cnxml">
+  <title>Програми со низи</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m47843</md:content-id>
+  <md:title>Програми со низи</md:title>
+  <md:abstract>Се прикажуваат повеке задачи со низи и нивни решениja во вид на програма во програмскиот јазик "C".</md:abstract>
+  <md:uuid>e11ccd0f-a679-4519-99c3-0ba8f5932d10</md:uuid>
+</metadata>
+
+<content>
+    <example id="eip-84"><title>Пример 1.</title><para id="eip-853">Од дадена низа да се формира подниза од елементи чии вредности се од даден интервал кој ќе се внесе преку тастатура. Да се отпечати новата низа.
+</para><para id="eip-431"><title>Програма:</title></para><code id="eip-54" display="block">#include &lt;stdio.h&gt;
+int main() 
+{
+      int pocetok, kraj, vlez[50], izlez[50];
+      int brojac = 0, i;
+      printf (“Vnesi pocetok i kraj”);
+      scanf (“%d %d”, &amp;pocetok, &amp;kraj);
+     
+      for(i = 0; i &lt; 50; i++) 
+      {
+            printf(“Vnesete element %d:i”, i);
+            scanf(“%d”, &amp;vlez[i]); 
+      }
+      
+      for(i = 0; i &lt; 50; i++)
+      {
+            if (vlez[i]&gt;pocetok &amp;&amp; vlez[i]&lt;kraj) 
+            {
+                  izlez[i]=vlez[i];
+                  brojac ++;
+            }
+      }
+      printf(“Izleznata niza:”);
+      for(i = 0; i &lt; brojac; i++) 
+      {
+            printf(“izlez[%d]:%d\n”, i, izlez[i]);
+      }
+      return (0)
+} 
+
+</code></example><example id="eip-954"><title>Пример 2.</title><para id="eip-232">Да се прикаже бројот на деновите во сите месеци во годината.
+</para><para id="eip-738"><title>Програма:</title></para><code id="eip-717" display="block">#include &lt;stdio.h&gt;
+int main() 
+{
+     int i, meseci[] = {31,28,31,30,31,30,31,31,30,31,30,31};
+     
+     for(i = 1; i &lt; 13; i++) 
+            printf("Mesecot broj %d ima %d denovi\n",i,meseci[i-1]);
+}
+</code></example><example id="eip-199"><title>Програмски сегмент:</title><para id="eip-802">Да се напише програмски сегмент што ќе овозможи проверка дали две низи a и b со должини n1 и n2 се идентични.
+</para><note id="eip-160"><title>Забелешка</title>Две низи се идентични ако имаат ист број на елементи и ако елементите на двете низи што се наоѓаат на иста позиција имаат идентична вредност. </note><para id="eip-332"><title>Програмски сегмент:</title></para><code id="eip-708" display="block">int i;
+if(n1 == n2) for(i=0; a[i]==b[i] &amp;&amp; i&lt;n1; i++);
+if(i==n1)  Исти се ...</code></example><example id="eip-384"><title>Пример 4.</title><para id="eip-590">
+ Да се напише програма која за низа а составена од 10 целобројни вредности, ќе ја пресмета просечната вредност на елементите од низата.
+</para><para id="eip-752"><title>Програма:</title></para><code id="eip-237" display="block">#include &lt;stdio.h&gt;
+void main() 
+{
+     int a[10], i;
+     float suma=0.0;  
+     printf ("Vnesi 10 elementi od nizata:\n");
+     for(i=1;i&lt;=10;i++)
+     {
+          scanf("%d",&amp;a[i]);
+     }
+     for(i=1;i&lt;=10;i++)
+     { 
+          suma+=a[i];
+     }
+     printf("Prosecnata vrednost e: %f.\n",suma/10.0);
+}</code></example><example id="eip-403"><title>Пример 5.</title><para id="eip-41">Да се напише програма која за дадена низа а од m (m &lt;100) реални броеви ќе ја најде аритметичката средина на елементите. Потоа низата да се трансформира така што ќе се исфрлат елементите помали од средната вредност, и новодобиената низа да се испечати на екран.
+</para><para id="eip-159"><title>Програма:</title></para><code id="eip-295" display="block">#include &lt;stdio.h&gt;
+void main() 
+{
+     int i, m, j=0;
+     float arSred=0.0, a[100], b[100];
+     printf("Kolku elementi ima nizata (m &lt;100):\n"); 
+     scanf("%d", &amp; m);
+     for( i=1; i&lt;= m; i++ )
+     {
+          scanf("%f",&amp;a[i]);
+     }
+     for(i=1;i&lt;= m;i++)
+     {
+          arSred+=a[i];
+     }
+     arSred/= m ;
+     for(i=1;i&lt;= m ;i++)
+          if(!(a[i]&lt;arSred))  
+          { 
+              j++;
+              b[j]=a[i];
+          }
+      for(i=1;i&lt;=j;i++)
+           printf("b[%d] = %f\n", i,  b[i]);
+}</code></example><example id="eip-292"><title>Пример 6.</title><para id="eip-863">Непознат број студенти одговарале на по десет прашања. На секое од прашањата студентот или не одговорил или одговорил со заокружување на еден од понудените пет одговори (1, 2, 3, 4 и 5). За секој точен одговор студентот добива по два поени, а за секој погрешен му се одзема по еден поен. Да се напише програма која на почетокот од тастатура ќе ги прочита точните одговори на десетте прашања, а потоа за внесените одговори на секој студент ќе го испечати бројот на поени кои ги освоил студентот. </para><note id="eip-161"><title>Забелешка:</title>Прашањата на кои студентот не одговорил се кодираат со било кој знак различен од 1, 2, 3, 4 и 5.</note><para id="eip-880"><title>Програма:</title></para><code id="eip-510" display="block">#include&lt;stdio.h&gt;
+#define BrPrasanja 10
+void main()
+{
+      int kluc[BrPrasanja], odgovor[BrPrasanja];
+      char c=’ ‘;
+      int bod, i, j=1;
+
+      printf(“Vnesi tocni odgovori:\n”);
+      for(i=1;i&lt;=BrPrasanja;i++)
+           scanf(“%d”,&amp;kluc[i]);
+      printf(“Vnesuvaj odgovori na studenti:\n”);
+      while(c != ‘.’)
+      {
+          for(i=1;i&lt;=BrPrasanja;i++)
+               scanf(“%d”,&amp;odgovor[i]);
+          bod=0;
+          for(i=1;i&lt;=BrPrasanja;i++)
+               if((odgovor[i]&gt;=1)&amp;&amp;(odgovor[i]&lt;=5))
+               if(odgovor[i]==kluc[i]) bod+=2;
+               else bod-=1;
+          printf(“Student %d: %d bodovi.\n”, j, bod);
+          j++;
+          printf(“Sleden student (. Za kraj)\n”);
+          c=getchar();
+       }
+}
+
+     
+</code></example><example id="eip-595"><title>Пример 7.</title><para id="eip-105">
+   Да се напише програма која за дадена низа A од реални броеви и N, број на елементи во A, ќе ја пресмета најголемата разлика меѓу два соседни елементи од оваа низа.
+</para><para id="eip-888"><title>Програма:</title></para><code id="eip-58" display="block">#include “stdio.h”
+#include “math.h”
+#define MAXELEM 10
+void main(void)
+{
+     float a[MAXELEM];
+     int i,n;
+     float raz,maxr;
+
+     printf(“Vnesi kolku elementi ke ima nizata A\n”);
+     scanf(“%d”,&amp;n);
+     printf(“Vnesi gi elementite na nizata A\n”);
+     for (i=0; i&lt;n; i++)
+     {
+          printf(“A[%d]=”,i);
+          scanf(“%f”,&amp;a[i]);
+     }
+     maxr=fabs(a[1]-a[0]);
+     for (i=2; i&lt;n; i++)
+     {
+          raz=fabs(a[i]-a[i-1]);
+          if(raz&gt;maxr)
+               maxr=raz;
+     }
+     
+     printf(“Najgolemata razlika medju dva sosedni elementi e:%f\n”,maxr);
+}
+
+
+</code></example><example id="eip-396"><title>Пример 8.</title><para id="eip-712">
+ Да се напише програма која во низа од N цели броеви ќе го пронајде почетокот и должината на најдолгата растечка подниза.
+</para><para id="eip-849"><title>Програма:</title></para><code id="eip-143" display="block">#include "stdio.h"
+#define MaxElem 10
+int main()
+{
+     float a[MaxElem];
+     int i,n,pos,len;
+
+     printf("Dolzina na nizata: "); scanf("%d",&amp;n);
+     for (i=0; i&lt;n; i++)
+            scanf("%f",&amp;a[i]);
+
+     int poc,dolz;
+
+     poc=0; dolz=1;
+     pos=0; len=1;
+     i=0;
+     while (i&lt; n-1)
+     {
+           poc=i;
+           dolz=1;
+           while ((a[i] &lt; a[i+1]) &amp;&amp; (i &lt; n))
+           {
+                 i=i+1;
+                 dolz=dolz+1;
+           }
+           if (dolz&gt;len)
+           {
+                 len=dolz;
+                 pos=poc;
+           }
+           i=i+1;
+     }
+
+     printf("Pocetok:%d, dolzina:%d",pos,len);
+
+     return 0;
+}
+
+ 
+</code></example><example xmlns:m="http://www.w3.org/1998/Math/MathML" id="eip-644"><title>Пример 9.</title><para id="eip-531">Да се напише програма во која од тастатура се чита влезната низа <m:math><m:semantics><m:mrow><m:mrow><m:mrow><m:mo stretchy="false">{</m:mo><m:mrow><m:msub><m:mi>a</m:mi><m:mrow><m:mn>0</m:mn></m:mrow></m:msub><m:mi>,</m:mi><m:msub><m:mi>a</m:mi><m:mrow><m:mn>1</m:mn></m:mrow></m:msub><m:mi>,</m:mi><m:mo stretchy="false">…</m:mo><m:mi>,</m:mi><m:msub><m:mi>a</m:mi><m:mrow><m:mrow><m:mi>n</m:mi><m:mo stretchy="false">−</m:mo><m:mn>1</m:mn></m:mrow></m:mrow></m:msub></m:mrow><m:mo stretchy="false">}</m:mo></m:mrow></m:mrow><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ lbrace a rSub { size 8{0} } ,a rSub { size 8{1} } , dotslow ,a rSub { size 8{n - 1} }  rbrace } {}</m:annotation></m:semantics></m:math> и потоа ќе се испечати трансформирана низа <m:math><m:semantics><m:mrow><m:mrow><m:mrow><m:mo stretchy="false">{</m:mo><m:mrow><m:msub><m:mi>b</m:mi><m:mrow><m:mn>0</m:mn></m:mrow></m:msub><m:mi>,</m:mi><m:msub><m:mi>b</m:mi><m:mrow><m:mn>1</m:mn></m:mrow></m:msub><m:mi>,</m:mi><m:mo stretchy="false">…</m:mo><m:mi>,</m:mi><m:msub><m:mi>b</m:mi><m:mrow><m:mrow><m:mi>n</m:mi><m:mo stretchy="false">−</m:mo><m:mn>1</m:mn></m:mrow></m:mrow></m:msub></m:mrow><m:mo stretchy="false">}</m:mo></m:mrow></m:mrow><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{ lbrace b rSub { size 8{0} } ,b rSub { size 8{1} } , dotslow ,b rSub { size 8{n - 1} }  rbrace } {}</m:annotation></m:semantics></m:math> на следниот начин: 
+</para><equation id="eip-893"><m:math>
+        <m:semantics>
+          <m:mrow>
+            <m:mrow>
+              <m:mtable>
+                <m:mtr>
+                  <m:mrow>
+                    <m:mrow>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>b</m:mi>
+                          <m:mrow>
+                            <m:mn>0</m:mn>
+                          </m:mrow>
+                        </m:msub>
+                        <m:mo stretchy="false">=</m:mo>
+                        <m:mrow>
+                          <m:msub>
+                            <m:mi>a</m:mi>
+                            <m:mrow>
+                              <m:mn>0</m:mn>
+                            </m:mrow>
+                          </m:msub>
+                          <m:mo stretchy="false">+</m:mo>
+                          <m:msub>
+                            <m:mi>a</m:mi>
+                            <m:mrow>
+                              <m:mrow>
+                                <m:mi>n</m:mi>
+                                <m:mo stretchy="false">−</m:mo>
+                                <m:mn>1</m:mn>
+                              </m:mrow>
+                            </m:mrow>
+                          </m:msub>
+                        </m:mrow>
+                      </m:mrow>
+                    </m:mrow>
+                    <m:mrow/>
+                  </m:mrow>
+                </m:mtr>
+                <m:mtr>
+                  <m:mrow>
+                    <m:mrow>
+                      <m:msub>
+                        <m:mi>b</m:mi>
+                        <m:mrow>
+                          <m:mn>1</m:mn>
+                        </m:mrow>
+                      </m:msub>
+                      <m:mo stretchy="false">=</m:mo>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>a</m:mi>
+                          <m:mrow>
+                            <m:mn>1</m:mn>
+                          </m:mrow>
+                        </m:msub>
+                        <m:mo stretchy="false">+</m:mo>
+                        <m:msub>
+                          <m:mi>a</m:mi>
+                          <m:mrow>
+                            <m:mrow>
+                              <m:mi>n</m:mi>
+                              <m:mo stretchy="false">−</m:mo>
+                              <m:mn>2</m:mn>
+                            </m:mrow>
+                          </m:mrow>
+                        </m:msub>
+                      </m:mrow>
+                    </m:mrow>
+                    <m:mrow/>
+                  </m:mrow>
+                </m:mtr>
+                <m:mtr>
+                  <m:mrow>
+                    <m:mo stretchy="false">⋮</m:mo>
+                    <m:mrow/>
+                  </m:mrow>
+                </m:mtr>
+                <m:mtr>
+                  <m:mrow>
+                    <m:mrow>
+                      <m:msub>
+                        <m:mi>b</m:mi>
+                        <m:mrow>
+                          <m:mrow>
+                            <m:mi>n</m:mi>
+                            <m:mo stretchy="false">−</m:mo>
+                            <m:mn>1</m:mn>
+                          </m:mrow>
+                        </m:mrow>
+                      </m:msub>
+                      <m:mo stretchy="false">=</m:mo>
+                      <m:mrow>
+                        <m:msub>
+                          <m:mi>a</m:mi>
+                          <m:mrow>
+                            <m:mrow>
+                              <m:mi>n</m:mi>
+                              <m:mo stretchy="false">−</m:mo>
+                              <m:mn>1</m:mn>
+                            </m:mrow>
+                          </m:mrow>
+                        </m:msub>
+                        <m:mo stretchy="false">+</m:mo>
+                        <m:msub>
+                          <m:mi>a</m:mi>
+                          <m:mrow>
+                            <m:mn>0</m:mn>
+                          </m:mrow>
+                        </m:msub>
+                      </m:mrow>
+                    </m:mrow>
+                    <m:mrow/>
+                  </m:mrow>
+                </m:mtr>
+              </m:mtable>
+              <m:mrow/>
+            </m:mrow>
+          </m:mrow>
+          <m:annotation encoding="StarMath 5.0">alignl { stack {
+ size 12{b rSub { size 8{0} } =a rSub { size 8{0} } +a rSub { size 8{n - 1} } }  {} # 
+b rSub { size 8{1} } =a rSub { size 8{1} } +a rSub { size 8{n - 2} }  {} # 
+ dotsvert  {} # 
+b rSub { size 8{n - 1} } =a rSub { size 8{n - 1} } +a rSub { size 8{0} }  {} 
+} } {}</m:annotation>
+        </m:semantics>
+      </m:math>
+    </equation><para id="eip-353">На пример, влезната низа 1, 2, 3, 5, 7, треба да се трансформира во 8, 7, 6, 7, 8.</para><para id="eip-210"><title>Програма:</title></para><code id="eip-239" display="block">#include “stdio.h”
+#define Max 100
+int main()
+{
+       int n,i,a[Max];
+
+       printf("Kolku elementi ima nizata: ");
+       scanf(“%d”,&amp;n);
+       printf(“Vnesi gi elementite na nizata\n”);
+       for (i=0; i&lt;n; i++)
+              scanf(“%d”,&amp;a[i]);
+
+       int b[Max];
+       for (i=0; i&lt;n; i++)
+             b[i]=a[i]+a[n-i-1];
+       
+       for (i=0; i&lt;n; i++)
+             printf(“b[%d]=%d a[%d]=%d\t”,i,*(b+i),i,a[i]); 
+       printf(“\n”);
+
+       return 0;
+}
+
+
+
+</code></example><example id="eip-313"><title>Пример 10.</title><para id="eip-81">
+  Да се напише програма која ќе прочита од тастатурата несортирана низа А од цели броеви за потоа да ја испечати низата во ист редослед, но предходно ќе изврши бришење на броевите кои се дупликати. 
+</para><para id="eip-242">На пример, за дадено поле A: 15, 31, 23, 15, 75, 23, 41, 15, 31, 85 од 10 цели броеви, излезното поле треба да биде: 15, 31, 23, 75, 41, 85 со должина 6.</para><para id="eip-43"><title>Програма:</title></para><code id="eip-249" display="block">#include "stdio.h"
+#define MAX 100
+
+int main()
+{
+
+     int i,n,brElem, a[MAX];
+ 
+     printf("Kolku elementi ima nizata: ");
+     scanf("%d",&amp;n);
+     printf("Vnesi gi elementite na nizata\n");
+     for (i=0; i&lt;n; i++)
+            scanf("%d",&amp;a[i]);
+
+     int j, brojac;
+    
+     brojac=0;
+     for (i=0; i&lt;n; i++)
+     {
+           j=0;
+           while ((j &lt;= brojac) &amp;&amp; (a[i] != a[j]))
+               j++;
+           if (j &gt; brojac)
+           {
+               brojac++;
+               a[brojac]=a[i];
+           }
+      }
+      brElem=brojac+1;
+
+      for (i=0; i&lt;brElem; i++)
+              printf("%d",a[i]);
+
+      return 0;
+}
+
+
+</code></example></content>
+</document>

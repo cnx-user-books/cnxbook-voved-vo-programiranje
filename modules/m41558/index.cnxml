@@ -1,0 +1,604 @@
+<document xmlns="http://cnx.rice.edu/cnxml">
+  <title>Вовед во програмскиот јазик C</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m41558</md:content-id>
+  <md:title>Вовед во програмскиот јазик C</md:title>
+  <md:abstract>Introduction to programming in C 
+Вовед во програмскиот јазик C</md:abstract>
+  <md:uuid>738b2bb9-995e-4fed-b54b-f1531401fc63</md:uuid>
+</metadata>
+
+<content>
+    <section id="id1168330198067">
+      <title> Општ развој на програмските јазици</title><para id="id1168347674474">Со појавата на првите компјутери се појавува потребата од пишување на програми преку кои ќе функционираат деловите од компјутерот. Во тоа време програмерите програмираа на многу неприроден начин, комбинирајќи низи од 0 и 1, користејќи го т.н. <emphasis>машински јазик</emphasis>.</para>
+      <para id="id1168329463792">Подоцна програмерите согледуваат дека од секој блок на 0 и 1 може да се искомбинираат наредби-зборови кои ќе се многу поразбирливи и полесно ќе се применуваат во текот на пишувањето на програмите. Ваквиот програмски јазик е познат како <emphasis>assembler.</emphasis></para>
+      <figure id="id1168329213825">
+        <media id="id1168329213825_media" alt="">
+          <image mime-type="image/png" src="../../media/graphics1.png" id="id1168329213825__onlineimage" height="188" width="609"/>
+        </media>
+      </figure>
+      <para id="id1168337231361">Со тек на времето се појавуваат т.н. <emphasis>програмски јазици на високо-ниво</emphasis>, кои му нудат на програмерот множество на инструкции кои се лесно разбирливи, а исто така се доволно прецизни и едноставни за компјутерот да може да ги разбере (овде спаѓаат FORTRAN, COBOL, PASCAL…).</para>
+      <para id="id1168332567771">Создаден во 1970 година од програмерот Денис Ричи (Dennis Ritchie) и Брајан Керниган (Brian Kernighan) од лабораториите Бел (AT&amp;T Bell Labs) 1972. Негов предок е јазикот B, развиен од Кен Томсон (Ken Thompson) во 1970 година. </para>
+      <para id="id1168331293540">ALGOL 60 -&gt; CPL -&gt; BCPL -&gt; B -&gt; C. </para>
+      <para id="id1168332563984">
+        <figure id="id1168328422688">
+          <media id="id1168328422688_media" alt="">
+            <image mime-type="image/jpg" src="../../media/graphics2-8b74.jpg" id="id1168328422688__onlineimage" height="220" width="180"/>
+          </media>
+        </figure>
+        <figure id="id1168332555065">
+          <media id="id1168332555065_media" alt="">
+            <image mime-type="image/jpg" src="../../media/graphics3-0db6.jpg" id="id1168332555065__onlineimage" height="219" width="167"/>
+          </media>
+        </figure>
+        <figure id="id1168332808573">
+          <media id="id1168332808573_media" alt="">
+            <image mime-type="image/jpg" src="../../media/graphics4.jpg" id="id1168332808573__onlineimage" height="215" width="169"/>
+          </media>
+        </figure>
+      </para>
+      <para id="id1168328502728"/>
+      <para id="id1168328502644">C бил почетно дизајниран за пишување на оперативни системи. Јазикот бил екстремно едноставен и флексибилен, така што тој подоцна се користи за пишување на најразлични програми. Поради овие причини јазикот станува најпопуларен програмски јазик во светот. </para>
+      <para id="id1168328436523">Идејата за креирањето на програмскиот јазик C е давањето на слобода на програмерот при организацијата и пишувањето на програмата, односно да го напише кодот (програмот) на начин кој е разбирлив за него, а и за останатите програмери. По пишувањето на програмата се користи <emphasis>компајлер</emphasis> кој ја преведува програмата во машински код кој е лесно разбирлив за компјутерот.</para>
+      <figure id="id1168328424824">
+        <media id="id1168328424824_media" alt="">
+          <image mime-type="image/png" src="../../media/graphics5.png" id="id1168328424824__onlineimage" height="151" width="529"/>
+        </media>
+      </figure>
+    </section>
+    <section id="id1168328499978">
+      <title>Основни елементи на програмскиот јазик C</title><list id="id1168328499897" list-type="bulleted">
+        <item>Азбука на јазикот: големи и мали англиски букви, арапски цифри и интерпункциски знаци </item>
+        <item>Секое име содржи само букви, цифри и _.</item>
+        <item>Името секогаш започнува со буква.</item>
+        <item>Името не смее да содржи празни места и интерпункциски знаци.</item>
+        <item>Името не смее да биде еднакво со клучен збор.</item>
+        <item>Има разлика помеѓу големи и мали букви.</item>
+      </list>
+      <para id="id1168337974392">Секој програмски јазик на високо ниво се состои од множество на резервирани зборови, а комбинацијата од еден или неколку клучни зборови дава наредба од програмскиот јазик.</para>
+      <para id="id1168328250012">Множеството на клучни зборови од програмскиот јазик C е следното (32 според ASCII стандардот, 28 според Richie).</para>
+      <table id="id1168329356040" summary="">
+        <tgroup cols="4">
+          <colspec colnum="1" colname="c1"/>
+          <colspec colnum="2" colname="c2"/>
+          <colspec colnum="3" colname="c3"/>
+          <colspec colnum="4" colname="c4"/>
+          <tbody>
+            <row>
+              <entry>auto</entry>
+              <entry>double</entry>
+              <entry>int</entry>
+              <entry>struct</entry>
+            </row>
+            <row>
+              <entry>break</entry>
+              <entry>else</entry>
+              <entry>long</entry>
+              <entry>switch</entry>
+            </row>
+            <row>
+              <entry>case</entry>
+              <entry>enum</entry>
+              <entry>register</entry>
+              <entry>typedef</entry>
+            </row>
+            <row>
+              <entry>char</entry>
+              <entry>extern</entry>
+              <entry>return</entry>
+              <entry>union</entry>
+            </row>
+            <row>
+              <entry>const</entry>
+              <entry>float</entry>
+              <entry>short</entry>
+              <entry>unsigned</entry>
+            </row>
+            <row>
+              <entry>continue</entry>
+              <entry>for</entry>
+              <entry>signed </entry>
+              <entry>void</entry>
+            </row>
+            <row>
+              <entry>default</entry>
+              <entry>goto</entry>
+              <entry>sizeof</entry>
+              <entry>volatile</entry>
+            </row>
+            <row>
+              <entry>do</entry>
+              <entry>if </entry>
+              <entry>static</entry>
+              <entry>while</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para id="id1168332634861">Програмскиот јазик C е функционален јазик, односно кодот напишан во овој програмски јазик е базиран на функции. Основниот облик на програма напишана во програмскиот јазик C е следниот:</para>
+      <code id="eip-665" display="block">void main()
+{
+    deklaracija_na_promenlivi;
+    programski_naredbi;
+}</code><para id="id1168352262628"><emphasis>main </emphasis>е функција која означува главна програма. Во овој специјален тип на функција може да се декларираат променливи, нови под-функции, и да се пишува кодот на програмата. Секоја програма содржи една или повеќе функции, но точно една што се нарекува main. Оваа функција се повикува прва при извршување на C програма</para>
+      <para id="id1168358712956">Функциите може да примаат влезни параметри. Ова се обезбедува преку () делот по името на функцијата. Во овој случај празните загради означуваат дека оваа функција не прима влезни параметри.</para>
+      <para id="id1168336638095">Типот на резултатот кој го враќа функцијата стои пред името на функцијата. Во овој случај резервираниот збор <emphasis>void</emphasis> означува дека функцијата не треба да врати резултат.</para>
+      <para id="id1168332148225">Телото на секоја функција започнува со <emphasis effect="bold">{</emphasis>, a завршува со <emphasis effect="bold">}</emphasis>. Наредбите кои се употребуваат меѓусебно се одвојуваат со <emphasis effect="bold">;</emphasis> - точка и запирка.</para>
+      <para id="id1168338238498">За дополнително појаснување на некој програмски сегмент многу често се користат коментарите. Во програмскиот јазик С коментарите се задаваат преку користење на <emphasis effect="bold">/* … */</emphasis> конструктот или преку <emphasis effect="bold">//…</emphasis> конструктот.</para>
+      <exercise id="id1168328263188">
+        <problem id="oo-id1168351917784">
+          <para id="id1168349785580">Програма Dobredojdovte na TMF!</para></problem>
+        <solution id="oo-id1168361315302">
+          <para id="id1168334843982">#include &lt;stdio.h&gt;</para>
+          <para id="id1168338271887">void main()</para>
+          <para id="id1168332547331">{</para>
+          <para id="id1168339803273"> printf(“Dobredojdovte na TMF!\n”);</para>
+          <para id="id1168334843039"> /* na ekran ke se ispecati gornata poraka */</para>
+          <para id="id1168329439986">}</para>
+        </solution>
+      </exercise>
+      <para id="id1168332148334">Опис на кратката програма:</para>
+      <para id="id1168330954194">#include </para>
+      <list id="id1168334844018" list-type="bulleted">
+        <item>#include &lt;stdio.h&gt; e претпроцесорска директива – му кажува на компјутерот да ја вметне содржината на определена датотека и понатаму содржините во таа датотека се употребливи во програмата</item>
+        <item>&lt;stdio.h&gt; во датотеката се сместени програмските кодови на влезно-излезните операции</item>
+        <item>директивата треба да се појави сама и да биде напишана во една линија</item>
+        <item>директивите не завршуваат со ;</item>
+      </list>
+      <para id="id1168331988780">printf( “Zdravo na site!\n" );</para>
+      <list id="id1168352145726" list-type="bulleted">
+        <item>дава инструкции компјутерот да изврши акција, да ја прикаже на комјутерскиот екран реченицата ограничена со наводниците</item>
+        <item>целата линија се нарекува израз</item>
+        <item>сите изрази во C мора да завршат со ;</item>
+        <item>\ - специјален знак (escape character)</item>
+        <item>означува дека printf( )треба да направи нешто различно од вообичаеното однесување</item>
+        <item>\n е ознака за знакот нов ред</item>
+      </list>
+      <para id="id1168328476566">return 0;</para>
+      <list id="id1168329185640" list-type="bulleted">
+        <item>по конвенција return 0, означува дека програмата завршува успешно со својата работа</item>
+      </list>
+    </section>
+    <section id="id1168329364432">
+      <title> Променливи</title><para id="id1168332551053">Променливите претставуваат места во меморијата каде што ќе се чува некоја вредност. Во С ова место во меморијата се идентификува преку името на променливата. Сите променливи кои ќе се користат во програмата треба претходно да бидат декларирани, а потоа да се користат. Начинот на декларација на променливите е следниот:</para>
+      <para id="id1168331058766"/>
+      <figure id="id1168332576185">
+        <media id="id1168332576185_media" alt="">
+          <image mime-type="image/png" src="../../media/graphics6.png" id="id1168332576185__onlineimage" height="98" width="476"/>
+        </media>
+      </figure>
+      <para id="id1168331876870">Типовите на променливите може да бидат:</para>
+      <table id="id1168330250822" summary="">
+        <tgroup cols="3">
+          <colspec colnum="1" colname="c1"/>
+          <colspec colnum="2" colname="c2"/>
+          <colspec colnum="3" colname="c3"/>
+          <tbody>
+            <row>
+              <entry>Цели броеви</entry>
+              <entry>Знаковни</entry>
+              <entry>Децимални броеви</entry>
+            </row>
+            <row>
+              <entry>int</entry>
+              <entry>char</entry>
+              <entry>float</entry>
+            </row>
+            <row>
+              <entry>short</entry>
+              <entry/>
+              <entry>double</entry>
+            </row>
+            <row>
+              <entry>long</entry>
+              <entry/>
+              <entry/>
+            </row>
+            <row>
+              <entry>unsigned</entry>
+              <entry/>
+              <entry/>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para id="id1168338328760">При дефинирањето на имињата на променливите треба да се запазат следниве правила, односно имињата на променливите треба да содржат:</para>
+      <list id="id1168331993247" list-type="bulleted">
+        <item>мали букви од <emphasis effect="bold">a</emphasis> до <emphasis effect="bold">z</emphasis>;</item>
+        <item>големи букви од <emphasis effect="bold">A</emphasis> до <emphasis effect="bold">Z</emphasis>;</item>
+        <item>цифри од <emphasis effect="bold">0</emphasis> до <emphasis effect="bold">9</emphasis>;</item>
+        <item>знак за подвлекување <emphasis effect="bold">_</emphasis> кој се третира како буква;</item>
+        <item>најчесто должината на имињата на променливите е 32 знаци;</item>
+        <item>С ги разликува малите и големите букви!</item>
+      </list>
+      <exercise id="id1168339249788">
+        <problem id="oo-id1168353988771">
+          <para id="id1168337705553">Да се напише програма во С која ќе ја пресмета сумата на два броја.</para></problem>
+        <solution id="oo-id1168358337486">
+          <para id="id3914675">void main()</para>
+          <para id="id1168338337774">{</para>
+          <para id="id1168349801167"> int a, b, c;</para>
+          <para id="id1168332134756"> a = 5;</para>
+          <para id="id1168347410669"> b = 10;</para>
+          <para id="id1168332155589"> c = a + b; // c=15</para>
+          <para id="id1168351189160">}</para>
+        </solution>
+      </exercise>
+      <para id="id1168328272123">Како што се гледа од примерот освен делот за декларирање на променливите, останатиот дел од програмата ги содржи наредбите кои ја извршуваат бараната задача. Бидејќи се работи за математичка операција, користени се оператори за работа со декларираните променливи.</para>
+    </section>
+    <section id="id1168354907408">
+      <title>Оператори</title><para id="id1168360575143">Операторите се користат за градење на изрази, при што операциите се изведуваат од лево надесно со што се применува правилото на приоритет на операторите во нивното изведување.</para>
+      <section id="id1168329403241">
+        <title>Аритметички оператори:</title>
+        <para id="id1168337778881">Се применуваат над бројни променливи (цели броеви или децимални броеви).</para>
+        <table id="id1168357978671" summary="">
+          <tgroup cols="2">
+            <colspec colnum="1" colname="c1"/>
+            <colspec colnum="2" colname="c2"/>
+            <tbody>
+              <row>
+                <entry>+</entry>
+                <entry>собирање на два броја</entry>
+              </row>
+              <row>
+                <entry>-</entry>
+                <entry>одземање на два броја</entry>
+              </row>
+              <row>
+                <entry>*</entry>
+                <entry>множење на два броја</entry>
+              </row>
+              <row>
+                <entry>/</entry>
+                <entry>делење на два броја</entry>
+              </row>
+              <row>
+                <entry>%</entry>
+                <entry>остаток при делење на два цели броеви</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <table id="id1168329202980" summary="">
+          <tgroup cols="3">
+            <colspec colnum="1" colname="c1"/>
+            <colspec colnum="2" colname="c2"/>
+            <colspec colnum="3" colname="c3"/>
+            <tbody>
+              <row>
+                <entry>оператор </entry>
+                <entry>израз </entry>
+                <entry>еквивалентен израз </entry>
+              </row>
+              <row>
+                <entry>+= </entry>
+                <entry>x+=2;</entry>
+                <entry>x=x+2;</entry>
+              </row>
+              <row>
+                <entry>-=</entry>
+                <entry>x-=2;</entry>
+                <entry>x=x-2;</entry>
+              </row>
+              <row>
+                <entry>*=</entry>
+                <entry>x*=2;x*=a+b;</entry>
+                <entry>x=x*2;x=x*(a+b);</entry>
+              </row>
+              <row>
+                <entry>/=</entry>
+                <entry>x/=2; x/=j+2;</entry>
+                <entry>x=x/2; x=x/(j+2);</entry>
+              </row>
+              <row>
+                <entry>%=</entry>
+                <entry>x%=2;</entry>
+                <entry>x=x%2;</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <para id="id1168328502624"/>
+      </section>
+      <section id="id1168328499926">
+        <title>Релациони оператори:</title>
+        <para id="id1168328425133">Се применуваат над било кои споредливи типови на податоци, а резултатот е цел број 0 или 1. 0 – неточно, 1 – точно.</para>
+        <table id="id1168334968067" summary="">
+          <tgroup cols="2">
+            <colspec colnum="1" colname="c1"/>
+            <colspec colnum="2" colname="c2"/>
+            <tbody>
+              <row>
+                <entry>&lt;</entry>
+                <entry>Помало</entry>
+              </row>
+              <row>
+                <entry>&lt;=</entry>
+                <entry>помало еднакво</entry>
+              </row>
+              <row>
+                <entry>&gt;</entry>
+                <entry>Поголемо</entry>
+              </row>
+              <row>
+                <entry>&gt;=</entry>
+                <entry>поголемо еднакво</entry>
+              </row>
+              <row>
+                <entry>==</entry>
+                <entry>Еднакво</entry>
+              </row>
+              <row>
+                <entry>!=</entry>
+                <entry>Различно</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </section>
+      <section id="id4290133">
+        <title>Логички оператори:</title>
+        <para id="id1168356175004">Се користат најчесто во комбинација со релационите оператори за формирање на сложени логички изрази, кои повторно враќаат резултат 0 или 1.</para>
+        <table id="id1168347400936" summary="">
+          <tgroup cols="2">
+            <colspec colnum="1" colname="c1"/>
+            <colspec colnum="2" colname="c2"/>
+            <tbody>
+              <row>
+                <entry>&amp;&amp;</entry>
+                <entry>И</entry>
+              </row>
+              <row>
+                <entry>||</entry>
+                <entry>ИЛИ</entry>
+              </row>
+              <row>
+                <entry>!</entry>
+                <entry>НЕ</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <para id="id1168338743069">Редослед на извршување на оператори (операции): </para>
+        <list id="id1168354664689" list-type="bulleted">
+          <item>Изразот во загради се пресметува на почеток (има највисок приоритет). Ако заградите се вгнездени, изразот во највнатрешните загради се пресметува прв. Ако постојат повеќе загради на исто ниво во изразот, тие се пресметуваат одлево надесно.</item>
+          <item>Операторите *. /, или % ( што се однесуваат на операциите множење, делење, модул) се пресметуваат како втори по ред (имаат среден приоритет). Ако во изразот има повеќе операции од овој вид, тие се пресметуваат одлево надесно. </item>
+          <item>Операторите + или – (собирање или одземање) се пресметуваат последни. Ако во изразот има повеќе операции од овој вид, тие се пресметуваат одлево надесно. </item>
+        </list>
+        <para id="id1168338330445">Самата операција на доделување исто така враќа вредност и може да се вметне во друг израз. Операторот за доделување е пофлексибилен отколку што тоа на прв поглед се чини, така да истиот може да се употреби и на следниот начин:</para>
+        <code id="eip-957" display="block">int i, j, k, l, m, n;
+i = j = k = l = m = n = 22; 
+</code><para id="id1168361416712">n=22 е првата операција што се извршува, и тоа прави вредноста 22 да биде расположива за следната операција додели ја вредноста 22 на променливата m, итн.</para>
+        <para id="eip-623"><title>Приоритет</title></para><list id="id1168337704507" list-type="bulleted">
+          <item>Во принцип сите унарни оператори имаат повисок приоритет од бинарните</item>
+          <item>Употребата на загради го менува приоритетот</item>
+          <item>Во С се дефинирани 15 нивои </item>
+        </list>
+        <para id="eip-221"><title>Асоцијативност</title></para><list id="id1168342753019" list-type="enumerated" number-style="arabic">
+          <item>За два оператора со ист приоритет, операцијата што треба да се изврши се избира на основа на правилата за асоцијативност на операторите</item>
+          <item>Дефинирани се “одлево надесно” и “оддесно налево”</item>
+        </list>
+      </section>
+    </section>
+    <section id="id8855127">
+      <title> Печатење на податоци (излезни функции)</title><para id="id1168360632135">Како што беше покажано на првиот пример “Dobredojdovte na TMF!”, се користи функција за испраќање на некој текст кон стандардниот уред за испис на податоци – мониторот.</para>
+      <para id="id1168353229402">Бидејќи С не вклучува наредби за влез и излез на податоци, се користи библиотека со функции која претходно мора да се пријави во програмата. Тоа се прави со користење на:</para>
+      <para id="id1168356531175"><emphasis effect="bold">#include&lt;stdio.h&gt;</emphasis>
+        <emphasis effect="bold"/>
+        
+      </para><para id="eip-615"><emphasis effect="italics">stdio – standard input output</emphasis></para><para id="id1168361017999">На овој начин пред да се искомпајлира програмата, предпроцесорот на С знае дека треба да ги вклучи функциите од библиотеката stdio.h со цел да не се јави грешка при компајлирањето. За печатење се користи функцијата printf:</para>
+      <para id="id1168354648182">
+        <emphasis>printf(kontrolna_niza,lista_na_promenlivi);</emphasis>
+      </para>
+      <para id="id1168343923279">Контролната низа содржи било каков текст за испис и контролни знаци предводени од % или <emphasis effect="bold">\</emphasis>. Контролните знаци зависат од видот на променливата чија вредноста треба да се испише или од саканата акција што треба да биде превземена.</para>
+      <para id="id1168352128356">Во следната табела се прикажани сите контролни низи:</para>
+      <table id="id1168352251567" summary="">
+        <tgroup cols="2">
+          <colspec colnum="1" colname="c1"/>
+          <colspec colnum="2" colname="c2"/>
+          <tbody>
+            <row>
+              <entry>контролна низа</entry>
+              <entry>објаснување</entry>
+            </row>
+            <row>
+              <entry>%d</entry>
+              <entry>За цели броеви</entry>
+            </row>
+            <row>
+              <entry>%i</entry>
+              <entry>За цели броеви</entry>
+            </row>
+            <row>
+              <entry>%c</entry>
+              <entry>За знаци</entry>
+            </row>
+            <row>
+              <entry>%s</entry>
+              <entry>За низа од знаци</entry>
+            </row>
+            <row>
+              <entry>%e</entry>
+              <entry>реален број во технички формат (е)</entry>
+            </row>
+            <row>
+              <entry>%E</entry>
+              <entry>реален број во технички формат (Е)</entry>
+            </row>
+            <row>
+              <entry>%f</entry>
+              <entry>реален број во децимален формат</entry>
+            </row>
+            <row>
+              <entry>%g</entry>
+              <entry>реален број во пократкиот од форматите %е и %f</entry>
+            </row>
+            <row>
+              <entry>%G</entry>
+              <entry>реален број во пократкиот од форматите %Е и %f</entry>
+            </row>
+            <row>
+              <entry>%u</entry>
+              <entry>цел број без предзнак</entry>
+            </row>
+            <row>
+              <entry>%o</entry>
+              <entry>октален цел број без предзнак</entry>
+            </row>
+            <row>
+              <entry>%x</entry>
+              <entry>хексадецимален цел број без предзнак (мали букви)</entry>
+            </row>
+            <row>
+              <entry>%X</entry>
+              <entry>хексадецимален цел број без предзнак (големи букви)</entry>
+            </row>
+            <row>
+              <entry>%p</entry>
+              <entry>Прикажува покажувач</entry>
+            </row>
+            <row>
+              <entry>%n</entry>
+              <entry>бројот на испишани знаци се доделува на аргументот</entry>
+            </row>
+            <row>
+              <entry>%%</entry>
+              <entry>испишување на знакот %</entry>
+            </row>
+          </tbody>
+        </tgroup>
+      </table>
+      <para id="id1168353130212">Во низата на променливи покрај променливи може да има и константи и аритметички изрази.</para>
+      <example id="oo-id1168343330513">
+        <para id="id1168342859924">Примена на printf функцијата.</para><code id="eip-962" display="block">#include&lt;stdio.h&gt;
+void main()
+{
+    printf(“, brojot na znaci e %d”,printf(“abcd”));
+}</code></example>
+      <para id="id1168360021960">Оваа програма на екранот ќе испечати</para>
+      <para id="id1168360513583">abcd, brojot na znaci e 4</para>
+    </section>
+    <section id="id1168332692941">
+      <title> Задачи</title><exercise id="id1168356410563">
+        <problem id="oo-id1168355208298">
+          <para id="id1168359034708">Да се напише програма која ќе ја пресметува вредноста на математичкиот израз: x = 3/2 + (5 – 46*5/12)</para></problem>
+        <solution id="oo-id1168346920370">
+          <para id="id1168332658820">#include &lt;stdio.h&gt;</para>
+          <para id="id1168339937857">void main()</para>
+          <para id="id1168347678379">{</para>
+          <para id="id1168338724978"> float x;</para>
+          <para id="id1168342292634"> x = 3/2 + (5-46*5/12);</para>
+          <para id="id1168341918819"> printf(“Vrednosta na x e %f\n”, x);</para>
+          <para id="id1168365892853">}</para>
+        </solution>
+      </exercise>
+      <exercise id="id1168337740035">
+        <problem id="oo-id1168332614125">
+          <para id="id1168339503129">Да се напише програма која за вредноста 25 на х ќе го пресмета и испечати неговиот квадрат.</para></problem>
+        <solution id="oo-id1168352504267">
+          <para id="id1168357827700">#include &lt;stdio.h&gt;</para>
+          <para id="id1168343855412">void main()</para>
+          <para id="id1168342384180">{</para>
+          <para id="id1168329476401"> int x, kvadrat;</para>
+          <para id="id1168343148244"> x = 25; </para>
+          <para id="id1168354338513"> kvadrat = x*x;</para>
+          <para id="id1168358892532"> printf(“%d na kvadrat e %d.\n”, x, kvadrat);</para>
+          <para id="id1168360749642">}</para>
+        </solution>
+      </exercise>
+      <exercise id="id1168358321589">
+        <problem id="oo-id1168358649537">
+          <para id="id1168342402903">Да се напише програма која за дадени страни на еден триаголник и ќе ги испечати периметарот и квадратот од плоштината (нека се работи со a=7, b=7.5, c=13.2).</para></problem>
+        <solution id="oo-id1168360070163">
+          <para id="id1168354948125">#include &lt;stdio.h&gt;</para>
+          <para id="id1168358833940">void main()</para>
+          <para id="id1168360195234">{</para>
+          <para id="id1168347346044"> float a=7.0, b=7.5, c=13.2;</para>
+          <para id="id1168358341728"> float L, P, s;</para>
+          <para id="id1168347672201"> L = a + b + c;</para>
+          <para id="id1168339679813"> s = L/2;</para>
+          <para id="id1168359107821"> P = s*(s-a)*(s-b)*(s-c);</para>
+          <para id="id1168361464977"> printf(“Plostinata na kvadrat e: %f\n”, P);</para>
+          <para id="id8896000"> printf(“Perimetarot e: %f\n”, L);</para>
+          <para id="id1168339317367">}</para>
+        </solution>
+      </exercise>
+      <exercise id="id1168337508716">
+        <problem id="oo-id1168357091326">
+          <para id="id1168352687652">Да се напише програма која за дадени страни на еден правоаголник ќе ги испечати неговите плоштина и периметар (пр. a=7, b=10).</para></problem>
+        <solution id="oo-id1168359574579">
+          <para id="id1168338155198">#include &lt;stdio.h&gt;</para>
+          <para id="id1168342041586">void main()</para>
+          <para id="id1168351572278">{</para>
+          <para id="id1168339679556"> int a, b;</para>
+          <para id="id1168354663334"> int L, P;</para>
+          <para id="id1168352122439"> printf(“Vnesete gi stranite na pravoagolnikot:”)</para>
+          <para id="id1168360375246">scanf(“%d %d”, &amp;a, &amp;b);</para>
+          <para id="id1168360192067"> L = 2*a + 2*b;</para>
+          <para id="id1168356586368"> P = a * b;</para>
+          <para id="id1168355258380"> printf(“Plostinata e: %f\n”, P);</para>
+          <para id="id1168329477718"> printf(“Perimetarot e: %f\n”, L);</para>
+          <para id="id1168350268863">}</para>
+        </solution>
+      </exercise>
+      <exercise id="id1168358721254">
+        <problem id="oo-id1168339757166">
+          <para id="id1168332647676">Да се напише програма за пресметување на аритметичката средина на броевите 3, 5 и 12.</para></problem>
+        <solution id="oo-id1168350760468">
+          <para id="id1168337819888">#include &lt;stdio.h&gt;</para>
+          <para id="id1168343770341">void main()</para>
+          <para id="id1168337674113">{</para>
+          <para id="id1168350961209"> int a=3;</para>
+          <para id="id1168354132036"> int b=5;</para>
+          <para id="id1168331995364"> int c=12;</para>
+          <para id="id1168356252684"> float as;</para>
+          <para id="id1168347678412"> as = (a + b + c)/3;</para>
+          <para id="id1168337716616"> printf(“Aritmetickata sredina e: %f\n”, as);</para>
+          <para id="id1168346213046">}</para>
+        </solution>
+      </exercise>
+      <exercise id="id1168360199452">
+        <problem id="oo-id1168360057391">
+          <para id="id1168343539123">Да се напише програма која ќе ги испечати на екран остатоците при делењето на бројот 19 со 2, 3, 5 и 8.</para></problem>
+        <solution id="oo-id1168332252643">
+          <para id="id1168354997562">#include &lt;stdio.h&gt;</para>
+          <para id="id1168359161446">void main()</para>
+          <para id="id1168338497857">{</para>
+          <para id="id1168355789084"> int a=19;</para>
+          <para id="id1168330967647"> printf(“Ostatokot pri delenjeto so 2 e: %d\n”, a%2);</para>
+          <para id="id1168339654910"> printf(“Ostatokot pri delenjeto so 3 e: %d\n”, a%3);</para>
+          <para id="id1168352614764"> printf(“Ostatokot pri delenjeto so 5 e: %d\n”, a%5);</para>
+          <para id="id1168352620772"> printf(“Ostatokot pri delenjeto so 8 e: %d\n”, a%8);</para>
+          <para id="id1168337701186">}</para>
+        </solution>
+      </exercise>
+      <exercise id="id7704428">
+        <problem id="oo-id1168347679889">
+          <para id="id1168339323648">Пример со податочни видови</para></problem>
+        <solution id="oo-id1168339803614">
+          <para id="id1168347433965">#include &lt;stdio.h&gt; </para>
+          <para id="id1168352095672">int main() </para>
+          <para id="id1168356981311">{ </para>
+          <para id="id1168356916886">int suma; </para>
+          <para id="id1168329930929">float pari; </para>
+          <para id="id1168358749517">char bukva; </para>
+          <para id="id1168338499272">double pi; </para>
+          <para id="id1168347396518">suma = 10; /* pridruzi celobrojna integer vrednost */ </para>
+          <para id="id1168342743906">pari = 2.21;   /* pridruzi realna float vrednost */ </para>
+          <para id="id1168339958525">bukva= 'A';   /* pridruzi znak */ </para>
+          <para id="id8831476">pi = 2.01E6;   /* pridruzi realna double vrednost*/ </para>
+          <para id="id1168347682685">printf(“Vrednost na suma = %d\n", suma ); </para>
+          <para id="id7705611">printf(“Vrednost na pari = %f\n", pari ); </para>
+          <para id="id1168346428894">printf(“Vrednost na bukva = %c\n", bukva ); </para>
+          <para id="id1168355219338">printf(“Vrednost na pi = %e\n", pi ); </para>
+          <para id="id1168349376049">} </para>
+        </solution>
+      </exercise>
+      <para id="id1168360107138">Излез:</para>
+      <para id="id1168354663263">   Vrednost na suma = 10 </para>
+      <para id="id1168347684168">   Vrednost na pari = 2.210000 </para>
+      <para id="id1168361725592">   Vrednost na bukva = A </para>
+      <para id="id1168339773559">   Vrednost na pi = 2.010000e+06 </para>
+    </section>
+  </content>
+</document>

@@ -1,0 +1,129 @@
+<document xmlns="http://cnx.rice.edu/cnxml">
+  <title>Задачи со разгранување</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m47824</md:content-id>
+  <md:title>Задачи со разгранување</md:title>
+  <md:abstract>Решени задачи со раздранета структура за чија реализација се користат структурите if и if...else.</md:abstract>
+  <md:uuid>55420a68-24a0-46b2-bf1e-289bcb60cb37</md:uuid>
+</metadata>
+
+<content>
+    <section id="import-auto-id1168645568208">
+      <title>Задачи со разгранување</title><example id="eip-958"><title>Пример 1.</title><para id="eip-389">Што ќе отпечати следниот програмски сегмент:</para><code id="eip-116" display="block">int x = 3;
+if (x)
+    printf ("DA\n");
+else printf ("NE\n");
+</code><para id="eip-455"><title>Одговор:</title></para><para id="eip-743">Ќе отпечати DA поради тоа што x има „ненулта“ вредност.</para>
+</example><example id="eip-830"><title>Пример 2.</title><para id="eip-483">Под кои услови ќе се отпечати зборот Voda во следниот програмски сегмент? </para><code id="eip-233" display="block">if(T &lt; 0)
+   printf("Mraz\n");
+else 
+   if(T &lt; 100)
+        printf("Voda\n");
+   else
+        printf("Parea\n");
+   
+</code><para id="eip-12"><title>Одговор:</title></para><para id="eip-534">Доколку Τ е <emphasis>поголемо или еднакво</emphasis> на 0 <emphasis>и помало</emphasis> од 100. Да се внимава на ова <emphasis>поголемо или еднакво</emphasis>.</para></example><example id="eip-229"><title>Пример 3.</title><para id="eip-962">Да се напише програма што врши квантификација на внесениот цел број: Се внесува цел број (x), тој се проверува и се печати соодветниот текст што го опишува бројот, според следната табела:
+</para><para id="eip-832">ако x е поголем или еднаков на 1000  се печати “претерано позитивен”</para><para id="eip-885">ако x е помеѓу 999 и 100 (вклучувајќи 100)  се печати “многу позитивен”</para><para id="eip-203">ако x е помеѓу 100 и 0 (без 0)  се печати “позитивен”</para><para id="eip-151">ако x е еднаков на 0  се печати “нула”</para><para id="eip-402">ако x е помеѓу 0 и -100  се печати “негативен”</para><para id="eip-959">ако x е помеѓу -100 и -999 (вклучувајќи -100)  се печати “многу негативен”</para><para id="eip-409">ако x е помал или еднаков на -1000  се печати “претерано негативен”</para><para id="eip-474">На пример, за -10 ќе печати “негативен”, за -100 ќе печати “ многу негативен”, а за 458 печати “многу позитивен” </para><para id="eip-760"><title>Програма:</title></para><code id="eip-608" display="block">#include &lt;stdio.h&gt;
+
+int main ()
+{
+    int i;
+    printf (“Vnesete cel broj: \n”);
+    scanf (“%i”, &amp;i);
+
+    if (i&gt;=1000 || i&lt;= -1000 )
+              printf (“preterano ”);
+    else
+         if (i&gt;=100 || i&lt;= -100 )
+              printf (“mnogu ”); 
+    if (i&gt;0)
+              printf (“pozitiven\n”);
+    else 
+         if (i==0)
+              printf (“nula\n”);
+    else  if (i&lt;0)
+              printf (“negativen\n”);
+
+  return 0;
+}</code></example><example id="eip-423"><title>Пример 4.</title><para id="eip-154">Да се напише програма што ќе ги генерира оценките врз основа на освоените поени од испитот, според следната табела:</para><para id="eip-577">поени: 0-50 oцена: 5 </para><para id="eip-460">поени: 51-60 oцена: 6 </para><para id="eip-381">поени: 61-70 oцена: 7 </para><para id="eip-689">поени: 71-80 oцена: 8 </para><para id="eip-362">поени: 81-90 oцена: 9 </para><para id="eip-971">поени: 91-100 oцена: 10 </para><para id="eip-754"><title>Програма:</title></para><code id="eip-481" display="block">#include &lt;stdio.h&gt;
+
+void main ()
+
+{
+    int  i, ocena;
+    printf (“Vnesete poeni: \n”);
+    scanf (“%d”, &amp;i);
+
+    ocena = 0;
+    if (i&gt;=0 &amp;&amp; i&lt;=50 )
+           ocena = 5;
+    else 
+         if (i&gt;50 &amp;&amp; i&lt;=60 )
+            ocena = 6;
+         else 
+              if (i&gt;60 &amp;&amp; i&lt;=70 )
+                   ocena = 7;
+              else 
+                  if (i&gt;70 &amp;&amp; i&lt;=80 )
+                       ocena = 8;
+                  else 
+                       if (i&gt;80 &amp;&amp; i&lt;=90 )
+                           ocena = 9;
+                       else 
+                            if (i&gt;90 &amp;&amp; i&lt;=100 )
+                                  ocena = 10;
+                            else
+                              printf (“Vnesen e pogreshen broj za poenite!!\n”);
+    if (ocena) 
+         printf (“Studentot dobil ocena %d.\n”, ocena);
+}</code></example><example id="eip-341"><title>Пример 5.</title><para id="eip-458">Престапна година е секоја година што е деллива со 4, освен доколку годината е деллива со 100 но не со 400. Да се напише програма што за година внесена од тастатура, ќе отпечати информација дали годината е престапна.</para><para id="eip-578"><title>Програма:</title></para><code id="eip-237" display="block">#include &lt;stdio.h&gt;
+int main ()
+{
+    int  godina;
+    printf ("Vnesete godina: \n");
+    scanf ("%d", &amp;godina);
+   
+    if ((godina%400==0)||((godina%4==0)&amp;&amp;(godina%100!= 0)))
+          printf ("Godinata E prestapna: \n");
+    else
+          printf ("Godinata NE prestapna: \n");
+    return 0;
+}</code></example><example id="eip-337"><title>Задача 6.</title><para id="eip-729">Од тастатура се внесуваат координати на една точка во рамнина. Да се напише програма што ќе одреди од кој квадрант е внесената точка или ќе даде информација доколку се работи за точка од оските. 
+</para><para id="eip-987"><title>Програма:</title></para><code id="eip-559" display="block">#include &lt;stdio.h&gt;
+int main ()
+{
+     float  x,y;
+     printf ("Vnesete kootdinati x i y: \n");
+     scanf ("%f %f", &amp;x, &amp;y);
+     
+     if(x &gt; 0)
+     {
+        if(y &gt; 0)
+               printf("Tockata e od prv kvadrant.\n");
+        else if(y &lt; 0)
+                    printf("Tockata e od cetvrti kvadrant.\n");
+             else printf("Tockata e na pozitivniot del od x-oska.\n");
+     }
+     else if(x &lt; 0)
+           {
+             if(y &gt; 0)
+                      printf("Tockata e od vtor kvadrant.\n");
+             else if(y &lt; 0)       
+                      printf("Tockata e od tret kvadrant.\n");
+                  else printf("Tockata e na negativniot del od x-oska.\n");
+           }
+           else
+           {
+                 if(y &gt; 0)
+                         printf("Tockata e na pozitivniot del od y-oska.\n"); 
+                 else if(y &lt; 0)
+                         printf("Tockata e na negativniot del od y-oska.\n"); 
+                      else printf("Tockata e koordinaten pochetok\n"); 
+           }
+     return 0;
+}                    
+
+
+</code></example></section>
+  </content>
+</document>

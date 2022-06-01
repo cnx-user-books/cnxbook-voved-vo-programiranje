@@ -1,0 +1,158 @@
+<document xmlns="http://cnx.rice.edu/cnxml">
+  <title>Наредби за повторување-циклуси</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m47823</md:content-id>
+  <md:title>Наредби за повторување-циклуси</md:title>
+  <md:abstract>За контрола на тек на програма, за поврорување на една или повеќе наредби се додека е исполнет зададен услов, се користат три вида на наредби. Тоа се наредбите while, do...while и for наредбата. Секоја од наведените наредби има своја структура и синтакса и преку примери ќе се излустрираат овие наредби.</md:abstract>
+  <md:uuid>508d8a1a-5020-408f-b93a-d288498ef99f</md:uuid>
+</metadata>
+
+<content>
+    <section id="import-auto-id4893952">
+      <title>Наредби за повторување-циклуси</title>
+      <section id="import-auto-id1167417205761">
+        <title>Структура на наредбите за повторување, циклуси (while и do. . . while)</title>
+        <para id="import-auto-id1167394122782"><emphasis>While</emphasis> структурата за повторување е една од трите структури за повторување во програмскиот јазик C и воедно таа е наједноставна. Со оваа наредба се овозможува повторување на една или повеќе наредби. </para>
+        <para id="import-auto-id1167406465465">Слично како и кај if стуктурата, така и во while структурата се задава услов (<emphasis>задолжително во мали загради</emphasis><emphasis effect="bold"> ( )</emphasis>) кој што се евалуира, односно проверува. Наредбата (наредбите) од циклусот се извршуваат се додека условот од while структурата е точен (враќа ненулта вредност). Повторувањето на наредбите од циклусот завршува кога условот ќе врати неточна вредност (нула 0) и програмата продолжува со извршување на следната наредба од телото на програмата (што не е дел од while структурата). </para>
+        <para id="import-auto-id1167413905134">Ако треба да се изврши само една наредба, таа едноставно се пишува по while делот:</para>
+        <code id="eip-263" display="block"><emphasis>while</emphasis><emphasis effect="bold"> (</emphasis>услов<emphasis effect="bold">)
+            </emphasis>наредба од циклусот<emphasis effect="bold">;</emphasis>
+
+</code><para id="import-auto-id1167437181318"> а ако пак треба да се извршат повеќе наредби (блок наредби) по while делот, тие се ставаат во блок ограничен со големи загради <emphasis>{ }</emphasis>, односно :</para><code id="eip-39" display="block"><emphasis>while </emphasis>(услов)
+{
+       една или повеќе наредби;
+}
+
+</code><para id="import-auto-id1167413746614">
+          <figure id="import-auto-id1167420589214"><media id="import-auto-id1167413343120" alt="">
+              <image mime-type="image/jpg" src="../../media/graphics1-eebb.jpg" height="240" width="189"/>
+            </media>
+          <caption>Слика 1. Блок дијаграм на while структура</caption></figure></para>
+        <example id="eip-164"><title>Пример 1.</title><para id="eip-159">Во овој пример се користи само една наредба во циклусот: 
+</para><code id="eip-252" display="block">int j = 5;
+
+//primer so samo edna naredba vo ciklus
+
+while (j&gt;0)
+     printf(“j = %d\n”,j--);
+
+</code><para id="eip-768">Оваа програма ќе печати броеви, почнувајки од 5, при што во секој циклус тие се намалуваат за 1 и на екранот ќе се отпечати:</para><para id="eip-551">j = 5</para><para id="eip-174">j = 4</para><para id="eip-566">ј = 3</para><para id="eip-121">ј = 2</para><para id="eip-45">ј = 1</para><para id="eip-367">Истиот пример може да се запише и со две наредби во циклусот, при што ќе се добие идентичен резултат:</para><code id="eip-828" display="block">int j=5;
+
+//primer so poveke naredbi vo ciklus
+
+while(j &gt; 0)
+{
+    printf(“j = %d\n”,j);
+    j--;
+} 
+
+</code></example><para id="import-auto-id1167413137564">Доколку по грешка се напише знакот <emphasis effect="bold">;</emphasis> по while делот со условот, наредбата/наредбите од while структурата стануваат дел “<emphasis>неправи ништо</emphasis>”. Бидејќи условот останува непроменет програмата влегува во бесконечна јамка (<emphasis>loop</emphasis>). Во ваков случај програмата нема да врати резултат, бидејќи е зафатена со “неправењето ништо”, поради што следните наредби по while структурата никогаш не се извршуваат. </para>
+        <example id="eip-922"><title>Пример 2.</title><code id="eip-14" display="block"><title>Пример кога while стуктурата неправи ништо</title>int j = 5;
+while (j&gt;0)<emphasis effect="bold">;</emphasis>
+printf(“j = %d\n”,j--);
+
+</code><para id="eip-680">Во овој пример заради знакот ; во наредбата </para><code id="eip-967" display="block">while (j&gt;0)<emphasis effect="bold">; </emphasis>
+</code><para id="eip-461">таа ништо не извршува и на екранот ќе нема никаков одговор.</para></example><para id="import-auto-id1167394101696">Многу е важно да се нагласи дека сите услови се while услови, односно “<emphasis effect="bold">се додека е исполнет условот се извршуваат наредбите</emphasis>”. Наредбите од циклусот while се извршуваат се додека е точен условот (има вредност различна од 0). Затоа, за да не се влезе во бесконечна јамка, во наредбите што седуваат после while наредбата мора да постои наредба која ќе влијае на вредноста на условот во наредбата while.</para>
+        <example id="eip-219"><title>Пример 3.</title><para id="eip-81">Во овој пример, програмерот најверојатно имал намера наредбата од while структурата да се извршува се додека j не стане еднакво на 0. Но направена е <emphasis>грешка</emphasis> во поставување на условот, точен услов би бил се додека ј е различно од 0 (ј != 0). 
+</para><para id="eip-685">Затоа програмата:</para><code id="eip-473" display="block">int j = 5;
+printf(“start\n”);
+while (j == 0)
+     printf(“j = %d\n”,j--); 
+printf(“end\n”);
+
+</code><para id="eip-794">нема да ја извршува наредбата од while циклусот, туку само ќе отпечати:</para><para id="eip-733">start</para><para id="eip-146">end</para></example><para id="import-auto-id1167413468705">Друг облик на структура за повторување е<emphasis> do. . . while</emphasis> структурата кoja е “превртена” верзија на структурата за повторување while. Ако во while циклусот по условот следува телото со наредби што се повторуваат, кај do. . . while циклусот прво се пишува телото со наредби за повторување, па следува условот. Од ова произлегува дека наредбите од циклусот ќе бидат извршени сигурно еднаш, пред да се провери условот. Ако условот е неточен, наредбите од циклусот do. . . while нема да бидат повторно извршени. Обликот на оваа структура е</para>
+        <code id="eip-172" display="block">do
+   тело (наредба за повторување);
+while (услов);</code><para id="import-auto-id1167435826378">или пак
+        </para><code id="eip-895" display="block">do
+{
+   блок наредби;
+}
+while (услов);
+
+</code><figure id="import-auto-id1167399302287"><media id="import-auto-id1167434227038" alt="">
+            <image mime-type="image/jpg" src="../../media/graphics2-0211.jpg" height="247" width="189"/>
+          </media>
+        <caption>Слика 2. Блок дијаграм на структурата do … while</caption></figure><example id="eip-299"><title>Пример 4.</title><para id="eip-530">Користејќи ja do…while структурата, програмата од Примерот 1 сега може да се запише како:
+</para><code id="eip-160" display="block">int j = 5;
+printf(“start\n”);
+do
+    printf(“j = %d\n”,j--); 
+while (j &gt; 0); 
+printf(“stop\n”);
+
+</code><para id="eip-703">и на екранот ќе се отпечати:</para><para id="eip-225">start</para><para id="eip-673">j = 5</para><para id="eip-835">j = 4</para><para id="eip-213">j = 3</para><para id="eip-358">j = 2</para><para id="eip-424">j = 1</para><para id="eip-282">stop</para></example><example id="eip-600"><title>Пример 5.</title><para id="eip-613">Програмата
+</para><code id="eip-23" display="block">int j = -10; 
+printf(“start\n”); 
+do 
+{
+    printf(“j = %d\n”,);
+    j--;
+}
+while (j &gt; 0);
+printf(“stop\n”);
+
+</code><para id="eip-1000">на екранот ќе отпечати само</para><para id="eip-455">start</para><para id="eip-375">j = -10</para><para id="eip-705">stop</para></example></section>
+      <section id="import-auto-id1167417164727">
+        <title>Структурa за повторување (for)</title>
+        <para id="import-auto-id1167394125998">Од аспект на синтаксата <emphasis>for</emphasis> циклусот за повторување е најсложен. Сепак, тој е сличен на <emphasis>while</emphasis> циклусот, бидејќи и самиот содржи while тип на услов (се додека е исполнет, односно точен условот се извршуваат наредбите од телото). Синтаксата на оваа структура за повторување е од облик:</para>
+        <code id="eip-590" display="block"><emphasis>for</emphasis>(иницијализација; услови; инкременти или декременти)
+       <emphasis effect="bold"/>тело (наредба/наредби за повторување)<emphasis effect="bold">;</emphasis>
+
+</code><media id="import-auto-id1167407365037" alt="Drawing">
+          <image mime-type="image/png" src="draw_odg0.png"/>
+        </media>
+        <figure id="import-auto-id1167423674425"><media id="import-auto-id1167417403157" alt="">
+            <image mime-type="image/jpg" src="../../media/graphics3-cc60.jpg" height="313" width="189"/>
+          </media>
+        <caption>Слика 3. Блок дијаграм на структурата for</caption></figure><para id="import-auto-id1167417169112">Наредбите од делот <emphasis>иницијализација</emphasis> се извршуваат точно еднаш, на почетокот - пред влезот во циклусот. Наредбите од делот <emphasis>услови</emphasis><emphasis effect="bold"><emphasis effect="italics"/></emphasis> се извршуваат пред почетокот на секој нов циклус и доколку тие имаат вредност која се интерпретира како логичка вистина се влегува во повторување на наредбите од циклусот, во спротивно се завршува повторувањето на циклусот и се продолжува со наредбите што следуваат по циклусот во програмата. Наредбите од делот <emphasis>инкременти</emphasis><emphasis effect="bold"/><emphasis> или </emphasis><emphasis effect="bold"/><emphasis>декременти</emphasis> се извршуваат на крајот на секој циклус (по извршувањето на сите наредби од <emphasis>телото</emphasis> на циклусот) по што се извршуваат наредбите од делот <emphasis>услови</emphasis> и доколку се задоволени, циклусот се повторува.</para><para id="import-auto-id8364586"> Исто како и кај if и while, доколку треба да се изврши само една наредба, таа едноставно се пишува по for делот, доколку, пак, треба да се извршат повеќе наредби (блок наредби) по for делот, тие се ставаат во блок ограничен со големи загради <emphasis effect="bold">{</emphasis><emphasis effect="bold">}</emphasis>.</para>
+        <para id="import-auto-id1167395261373">
+          <emphasis effect="bold">ВАЖНО!!!</emphasis>
+        </para>
+        <para id="import-auto-id1167401605071">Да се внимава дека знакот <emphasis effect="bold">;</emphasis> мора да ги одделува трите дела на <emphasis>for</emphasis> наредбата. Исто така условот во for наредбата мора да биде од типот “<emphasis>се додека е исполнет условот</emphasis>“. </para>
+        <example id="eip-205"><title>Пример 6.</title><para id="eip-237">Истиот пример, наведен претходно за печатење на почетниот број 5 и потоа во секој циклус тој се намалува за 1 и се печати бројот се додека се добива позитивен број, е прикажан и на трет начин со структурата for:</para><code id="eip-845" display="block">int j;
+
+for (j = 5; j &gt; 0; j--)
+      printf(“j = %d\n”,j--);
+
+</code><para id="eip-74">и резултатот што ќе се отпечати на екранот е:</para><para id="eip-442">j = 5</para><para id="eip-110">j = 4</para><para id="eip-877">j = 3</para><para id="eip-871">j = 2</para><para id="eip-64">j = 1</para></example><para id="import-auto-id1167417763799">Треба да се забележи дека за разлика од некои програмски јазици, каде чекорот во for циклусот можеше да биде само 1, во C не постои ограничување за чекорот. </para><example xmlns:m="http://www.w3.org/1998/Math/MathML" id="eip-451"><title>Пример 7.</title><para id="eip-278">Програма за табелирање на функцијата <m:math><m:semantics><m:mrow><m:mrow><m:mrow><m:mtext>sin</m:mtext><m:mi>x</m:mi><m:mi>,</m:mi><m:mi/><m:mrow><m:mrow><m:mn>0</m:mn><m:mo stretchy="false">≤</m:mo><m:mi>x</m:mi></m:mrow><m:mo stretchy="false">≤</m:mo><m:mi>π</m:mi></m:mrow></m:mrow></m:mrow><m:mrow/></m:mrow><m:annotation encoding="StarMath 5.0"> size 12{"sin"x,~0 &lt;= x &lt;= π} {}</m:annotation></m:semantics></m:math> со чекор 0.2.</para><code id="eip-419" display="block">#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+int main()
+{
+     double agol;
+     for(agol = 0.0; agol &lt; 3.14159; agol += 0.2)
+          printf(“sinus od %.1lf e %.2lf\n”, agol, sin(agol));
+     return 0;
+}
+
+</code><para id="eip-933">Во овој пример, променливата agol се зголемува за 0.2 радијани при секое извршување на наредбата for, се додека е исполнет условот agol &lt; 3.14159. Како што е наведено, вредностите на аглите задолжително се задаваат со радијански мерки.</para></example><example id="eip-1"><title>Пример 8.</title><para id="eip-491">Во деловите за иницијализација и менување на вредности од for наредбата, по потреба може да се наведат повеќе изрази кои се одвојуваат со знакот запирка(<emphasis effect="bold">,</emphasis>). Запирката гарантира последователно извршување на наведените изрази.</para><code id="eip-792" display="block">int i, j, k;
+    for (i = 0, j = 5, k = -1; i &lt; 10; i++, j++, k--) </code><para id="eip-747">Ако нема потреба од наведување на изрази во овие два дела, тие можат да бидат изоставени, но <emphasis>НЕ СМЕАТ</emphasis> да се заборават знаците<emphasis effect="bold"> ;</emphasis> . Коректно напишана е  следната наредба</para><code id="eip-988" display="block">for(; i &lt; 10; i++, j++, k--)
+
+</code><para id="eip-332">Со наредбата </para><code id="eip-466" display="block">for( ; ; )
+
+</code><para id="eip-913">се креира бесконечна јамка и се чита “засекогаш”(for ever).</para></example></section>
+      <section id="import-auto-id1167392210982">
+        <title> Клучни зборови break и continue</title>
+        <para id="import-auto-id1167392563899">Од претходните примери за наредбите while и for се гледа можноста за креирање на бесконечен циклус. Знаејќи го ефектот од користењето на бесконечниот циклус произлегува дека треба да се одбегнува по секоја цена. Сепак, во програмскиот јазик C може да се користат бесконечни циклуси од кои ќе се излегува, односно скокнува надвор од нив. Користењето на клучниот збор <emphasis>break</emphasis> овозможува излегување од било кој циклус, независно од условот и продолжување со првата следна наредба по циклусот. </para>
+        <example id="eip-238"><title>Пример 9.</title><para id="eip-24"/><code id="eip-749" display="block">for(;;)
+{
+   printf(“vnesi int vrednost:”);
+   if(scanf(“%d”, &amp;j) == 1)
+        break;
+   while((c = getchar()) != ‘\n’);
+}
+printf(“j = %d\n”, j);
+
+
+</code><para id="eip-429">Оваа програма на екранот ќе испечати:</para><para id="eip-621">vnesi int vrednost: an int</para><para id="eip-153">vnesi int vrednost: no</para><para id="eip-654">vnesi int vrednost: 16</para><para id="eip-288">j = 16</para><para id="eip-371">Во случај ако scanf врати 1 (односно ако се вчита преку тастатура цел број), се излегува од бесконечната јамка. </para></example><para id="import-auto-id1167414167865">Пример 10.</para>
+        <example id="eip-493"><title>Пример 10.</title><para id="eip-102"/><code id="eip-245" display="block">for(ј = 1; ј &lt;= 10; j++) 
+{
+   if(j % 3 == 0)
+       continue;
+   printf(“j = %d\n”, j);
+}
+
+</code><para id="eip-754">На екранот оваа програма ќе печати:</para><para id="eip-435">j = 1</para><para id="eip-622">j = 2</para><para id="eip-95">j = 4</para><para id="eip-215">j = 5</para><para id="eip-199">j = 7</para><para id="eip-935">j = 8</para><para id="eip-535">j = 10</para></example></section>
+    </section>
+  </content>
+</document>

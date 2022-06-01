@@ -1,0 +1,286 @@
+<document xmlns="http://cnx.rice.edu/cnxml">
+  <title>Влез и излез на податоци</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45180</md:content-id>
+  <md:title>Влез и излез на податоци</md:title>
+  <md:abstract/>
+  <md:uuid>12d14457-5b41-456c-ba33-f0d7d2aec9a2</md:uuid>
+</metadata>
+
+<content>
+    <section id="import-auto-id9009240">
+      <title>Влез и излез на податоци</title>
+      <section id="import-auto-id1165509648315">
+        <title>Внесување на податоци со scanf() функцијата</title>
+        <para id="import-auto-id1165509759561">Влезните податоци може да се внесат во компјутерот од стандардниот влез со користење на библиотечната функција scanf(). Обликот на оваа функција е следниот:</para>
+        <para id="import-auto-id8371451"><emphasis>scanf(Контролна низа од знаци, arg1, arg2, … , argn)</emphasis></para><para id="import-auto-id8927830">Контролната низа од знаци е всушност низа од знаци (стринг) кој ја содржи потребната информација за форматирање, а arg1, arg2, ..., argn се аргументите кои ги претставуваат индивидуалните податоци. Аргументите претставуваат покажувачи кои ја даваат мемориската адреса каде ќе се смести податокот кој ќе се прочита. Контролната низа од знаци е изградена од индивидуални групи на знаци со една група на знаци за секој податок кој ќе се чита. Секоја група на знаци мора да започне со знакот %. Во нејзината наједноставна форма една група знаци се состои од % по кој следи знак за конверзија кој го дава типот на соодветниот мемориски елемент каде ќе се запише податокот.</para>
+        <table id="import-auto-id1165508510398" summary="">
+          <tgroup cols="2">
+            <colspec colnum="1" colname="c1"/>
+            <colspec colnum="2" colname="c2"/>
+            <thead>
+              <row>
+                <entry>Знак законверзија</entry>
+                <entry>Значење</entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>c</entry>
+                <entry>Податочниот елемент е еден знак</entry>
+              </row>
+              <row>
+                <entry>d</entry>
+                <entry>Податочниот елемент е децимален цел број</entry>
+              </row>
+              <row>
+                <entry>f</entry>
+                <entry>Податочниот елемент е реална вредност</entry>
+              </row>
+              <row>
+                <entry>h</entry>
+                <entry>Податочниот елемент е краток цел број</entry>
+              </row>
+              <row>
+                <entry>I</entry>
+                <entry>Податочниот елемент е децимален, хексадецимален или октален цел број</entry>
+              </row>
+              <row>
+                <entry>o</entry>
+                <entry>Податочниот елемент е октален цел број</entry>
+              </row>
+              <row>
+                <entry>s</entry>
+                <entry>Податочниот елемент е низа од знаци по која следи едно празно место, нов ред или табулатор</entry>
+              </row>
+              <row>
+                <entry>u</entry>
+                <entry>Податочниот елемент е децимален цел број без знак</entry>
+              </row>
+              <row>
+                <entry>x</entry>
+                <entry>Податочниот елемент е хексадецимален цел број</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <example id="eip-908"><code id="eip-939" display="block">#include &lt;stdio.h&gt;
+main()
+{
+    char del;
+    int delbroj;
+    float cena;
+    ...
+    scanf(“%c%d%f”,&amp;del,&amp;delbroj,&amp;cena);
+    ...
+}</code></example><para id="import-auto-id1165508091210">Првата група знаци покажува дека првиот аргумент е знак, втората дека вториот аргумент е децимален цел број, додека третата дека третиот аргумент е реален број.</para>
+        <para id="import-auto-id8504569">Со помош на scanf() функцијата вредностите на трите променливи del, delbroj и cena можат да се прочитаат од стандардниот влез кога ќе се изврши програмата. Влезот за програмата може да е следниот:</para>
+        <para id="import-auto-id6735983">Pc 12345 570.34  </para>
+        <para id="import-auto-id1165509778950">или</para>
+        <para id="import-auto-id6819901">Pc</para>
+        <para id="import-auto-id2485428">12345</para>
+        <para id="import-auto-id4893011">570.34</para>
+        <example id="eip-859"><code id="eip-5" display="block">#include &lt;stdio.h&gt;
+main()
+{
+    int a, b, c;
+    ...
+    scanf(“%3d %3d %3d”,&amp;a,&amp;b,&amp;c);
+    ...
+}</code></example><table id="import-auto-id1165508682117" summary="">
+          <tgroup cols="2">
+            <colspec colnum="1" colname="c1"/>
+            <colspec colnum="2" colname="c2"/>
+            <thead>
+              <row>
+                <entry>
+                  <para id="import-auto-id8963389">
+                    <emphasis effect="bold">Влез</emphasis>
+                  </para>
+                </entry>
+                <entry>
+                  <para id="import-auto-id7025170">
+                    <emphasis effect="bold">Излез</emphasis>
+                  </para>
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>1 2 3</entry>
+                <entry>a=1, b=2, c=3</entry>
+              </row>
+              <row>
+                <entry>123456789</entry>
+                <entry>a=123 b=456 c=789</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <example id="eip-681"><code id="eip-533" display="block">#include &lt;stdio.h&gt;
+main()
+{
+    int i;
+    float f;
+    char c;
+    ...
+    scanf(“%3d %5f%c”,&amp;i,&amp;f,&amp;c);
+    ...
+}</code></example><table id="import-auto-id1165506809965" summary="">
+          <tgroup cols="2">
+            <colspec colnum="1" colname="c1"/>
+            <colspec colnum="2" colname="c2"/>
+            <thead>
+              <row>
+                <entry>
+                  <para id="import-auto-id1165506810258">
+                    <emphasis effect="bold">Влез</emphasis>
+                  </para>
+                </entry>
+                <entry>
+                  <para id="import-auto-id1165506810667">
+                    <emphasis effect="bold">Излез</emphasis>
+                  </para>
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>10256.875 T</entry>
+                <entry>i=102  f=56.87  c=5</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+        <para id="import-auto-id1165506810765">Треба да се напомене дека функцијата scanf го враќа бројот на прочитани параметри. </para>
+        <example id="eip-729"><code id="eip-379" display="block">#include &lt;stdio.h&gt;
+main()
+{
+    int i;
+    float f = 3.0;
+    char c = ‘a’;
+   
+    i = scanf(“%f %c”,&amp;f,&amp;c);
+    printf(”%d %f %c”,i, f, c);
+}</code></example><table id="import-auto-id1165506806071" summary="">
+          <tgroup cols="2">
+            <colspec colnum="1" colname="c1"/>
+            <colspec colnum="2" colname="c2"/>
+            <thead>
+              <row>
+                <entry>
+                  <para id="import-auto-id1165506806956">
+                    <emphasis effect="bold">Влез</emphasis>
+                  </para>
+                </entry>
+                <entry>
+                  <para id="import-auto-id1165509565052">
+                    <emphasis effect="bold">Излез</emphasis>
+                  </para>
+                </entry>
+              </row>
+            </thead>
+            <tbody>
+              <row>
+                <entry>a c</entry>
+                <entry>0 3.0 а</entry>
+              </row>
+              <row>
+                <entry>5.0 c</entry>
+                <entry>2 5.0 c</entry>
+              </row>
+            </tbody>
+          </tgroup>
+        </table>
+      </section>
+      <section id="import-auto-id1165508317960">
+        <title>Печатење на податоци со printf() функцијата</title>
+        <para id="import-auto-id1165506821213">Излезните податоци може да се запишат од компјутерската меморија на стандардниот излез со користење на библиотечната функција printf. Општата форма на printf функцијата е</para>
+        <para id="import-auto-id1165506806088"><emphasis>printf(Kontrolna niza od znaci, arg1, arg2, …, argn)</emphasis></para><para id="import-auto-id1165506830722">каде контролната низа се однесува на низа од знаци која содржи информации за форматирањето. arg1, arg2, …, argn се аргументите кои ги претставуваат индивидуалните излезни податоци.</para><example id="eip-562"><code id="eip-265" display="block">#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+main()
+{
+    float i = 2.0, j = 3.0;
+    printf (“%f %f %f %f”, i, j, i+j, sqrt(i+j)); 
+}</code></example><para id="import-auto-id1165509564741">Оваа програма на екранот ќе печати:</para>
+        <para id="import-auto-id1165506829636">2.000000  3.000000  5.000000  2.236068</para><para id="import-auto-id1165506808810">Бројот на конверзии во даден формат треба точно да одговара на бројот на аргументи во функцијата. При тоа, С ова нема да го потврди. Ако се дадени поголем број аргументи, вишокот аргументи се игнорираат. Ако, пак, нема доволен број аргументи, С ќе генерира чудни броеви за аргументите кои недостигаат.</para>
+        <example id="eip-423"><code id="eip-445" display="block">#include &lt;stdio.h&gt;
+/* Variable for computation results */
+int answer;
+int main()
+{
+    answer = 2 + 2;
+    printf("The answer is %d\n");
+    return (0);
+}</code></example><example id="eip-808"><code id="eip-839" display="block">#include &lt;stdio.h&gt;
+float result; /* Rezultat od delenje */
+int main()
+{
+    result = 7.0 / 22.0;
+    printf("Rezultatot e %d\n", result);
+    return (0);
+}</code></example></section>
+      <section id="import-auto-id1165509564938">
+        <title>Задачи за вежбање:</title><section id="eip-110"><title>ЗАДАЧА 1.</title><para id="eip-194">Да се напише програма за пресметување и печатење на плоштината и периметарот на круг која ќе чита реален број кој го претставува радиусот на кругот.
+</para></section><para id="eip-616"><emphasis>ПРОГРАМА:</emphasis></para><para id="import-auto-id1165506821541">#include &lt;stdio.h&gt;</para>
+        <para id="import-auto-id1165506808613">int main(void)</para>
+        <para id="import-auto-id1165506806972">{</para>
+        <para id="import-auto-id1165509564856">long double radius = 0.0L;</para>
+        <para id="import-auto-id1165508335896">long double plostina = 0.0L;</para>
+        <para id="import-auto-id1165509563813">const long double pi = 3.1415926353890L;</para>
+        <para id="import-auto-id1165506838804">printf(“vnesi radius na krugot “);</para>
+        <para id="import-auto-id1165506822246">scanf(”%Lf”, &amp;radius);</para>
+        <para id="import-auto-id1165506805415">plostina = pi * radius * radius;</para>
+        <para id="import-auto-id1165506808547">printf(”P na krug so r %.3Lf e %.12Lf\n”, radius, plostina);</para>
+        <para id="import-auto-id1165506808465">return 0;</para>
+        <para id="import-auto-id1165509564578">}</para>
+        <section id="eip-978"><title>ЗАДАЧА 2.</title><para id="eip-149">Да се напише програма која чита големи букви од тастатура и ги печати истите како мали букви.
+</para></section><para id="eip-100"><emphasis>ПРОГРАМА:</emphasis></para><para id="import-auto-id1165506820770">#include &lt;stdio.h&gt;</para>
+        <para id="import-auto-id1165506839658">int main(void)</para>
+        <para id="import-auto-id1165506822558">{</para>
+        <para id="import-auto-id1165509564823">char ch;</para>
+        <para id="import-auto-id1165509564512">printf(“Vnesi golema bukva “);</para>
+        <para id="import-auto-id1165506822716">scanf(”%c”, &amp;ch);</para>
+        <para id="import-auto-id8821627">printf(”Mala ekvivalent bukva na ‘%c’ e ‘%c’\n”, ch, ch-’A’+’a’);</para>
+        <para id="import-auto-id1165506805760">return 0;</para>
+        <para id="import-auto-id1165506806350">}</para>
+        <section id="eip-799"><title>ЗАДАЧА 3.</title><para id="eip-468">Кој ќе биде излезот на следната програма?
+</para></section><para id="import-auto-id1435636">#include &lt;stdio.h&gt;</para>
+        <para id="import-auto-id1165506822667">int main(void)</para>
+        <para id="import-auto-id1165509564774">{</para>
+        <para id="import-auto-id1165506830665">int i=0, j, k=7, m=5;</para>
+        <para id="import-auto-id1165506805579">j = m += 2;</para>
+        <para id="import-auto-id1165506839800">printf(“j = %d\n“, j); // j = 7</para>
+        <para id="import-auto-id1165509565069">j = k++ &gt; 7;</para>
+        <para id="import-auto-id1165506809187">printf(”j = %d\n”, j); // j = 0</para>
+        <para id="import-auto-id1165506839457">j = i == 0 || --k;</para>
+        <para id="import-auto-id1165509564954">printf(“j = %d\tk = %d\n”, j, k); // j = 1 k = 8</para>
+        <para id="import-auto-id1165506829587">return 0;</para>
+        <para id="import-auto-id1165506805645">}</para>
+        <section id="eip-386"><title>ЗАДАЧА 4.</title><para id="eip-330">Да се напише програма која ќе прочита два цели броја и ќе ја испечати нивната сума, разлика, производ и остатокот при делењето. Програмата исто така ќе прочита и со која прецизност треба да ги испечати двата броја.
+</para></section><para id="eip-981"><emphasis>ПРОГРАМА:</emphasis></para><para id="import-auto-id1165506808908">#include &lt;stdio.h&gt;</para>
+        <para id="import-auto-id1165506808875">int main(void)</para>
+        <para id="import-auto-id1165506806317">{</para>
+        <para id="import-auto-id1165506806759">int prv, vtor, vkupno, dec;</para>
+        <para id="import-auto-id1165506808859">printf(“vnesi dva broja “);</para>
+        <para id="import-auto-id1165506838948">scanf(”%i %i”, &amp;prv, &amp;vtor);</para>
+        <para id="import-auto-id1165506806170"> printf(“vnesi preciznost vkupno decimalni mesta “);</para>
+        <para id="import-auto-id8821709">scanf(”%i %i”, &amp;vkupno, &amp;dec);</para>
+        <para id="import-auto-id9010076">printf(“%i + %i = %0*i\n“, prv,vtor,vkupno,prv + vtor);</para>
+        <para id="import-auto-id1165508510050">printf(“%i - %i = %0*i\n“, prv,vtor,vkupno,prv - vtor);</para>
+        <para id="import-auto-id1165506830059">printf(“%i * %i = %0*i\n“, prv,vtor,vkupno,prv * vtor);</para>
+        <para id="import-auto-id1165508495344"> printf(“%i / %i = %0*.*lf\n“,prv,vtor,vkupno,dec,prv / vtor);</para>
+        <para id="import-auto-id1165506820902">printf(“%i %% %i = %0*i\n“, prv,vtor,vkupno,prv % vtor);</para>
+        <para id="import-auto-id1165506806546">return 0;</para>
+        <para id="import-auto-id1165508336044">}</para>
+        <para id="import-auto-id1165506821164">ИЗЛЕЗ:</para><para id="import-auto-id1165506806694">vnesi dva broja 12345 56789</para>
+        <para id="import-auto-id1165506830534">vnesi preciznost vkupno mesta decimalni mesta 9 3</para>
+        <para id="import-auto-id1165509563862">12345 + 56789 = 000069134</para>
+        <para id="import-auto-id1165509564806">12345 - 56789 = -00044444</para>
+        <para id="import-auto-id1165506809400">12345 * 56789 = 701060205</para>
+        <para id="import-auto-id1165508495630">12345 / 56789 = 00000.000</para>
+        <para id="import-auto-id1165506821738">12345 % 56789 = 000012345</para>
+      </section>
+    </section>
+  </content>
+</document>

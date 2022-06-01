@@ -1,0 +1,66 @@
+<document xmlns="http://cnx.rice.edu/cnxml">
+  <title>Наредби за разгранување</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m47805</md:content-id>
+  <md:title>Наредби за разгранување</md:title>
+  <md:abstract>За претставување на алгоритми со разгранета структура, во програмскиот јазик C се користи  наредбата if или нејзиниот облик if...elsе.</md:abstract>
+  <md:uuid>a4dc3697-4183-4e15-bcd7-db9012736f84</md:uuid>
+</metadata>
+
+<content>
+    <section id="import-auto-id1166222940807">
+      <title>Наредби за разгранување </title><section id="import-auto-id1166222136632">
+        <title>Структура за разгранување (if  … else)</title>
+        <para id="import-auto-id7586842">If структурата овозможува разгранување на текот на програмата  преку избор од една или од две можности. </para>
+        <para id="import-auto-id1166222984425">Ако if стуктурата се користи за избор од една можност, тогаш доколку е исполнет  зададениот услов (1), се извршува наредбата напишана по if делот, во спротивно, доколку не е исполнет условот (0) се извршува следната наредба во програмата (што не е дел од if структурата). </para>
+        <para id="import-auto-id1166224110320">Условот во if стуктурата <emphasis>задолжително</emphasis> се пишува во мали загради. За разлика од некои други програмски јазици, тука не постои клучниот збор <emphasis>then</emphasis>. </para>
+        <para id="import-auto-id1166222776005">Ако треба да се изврши само една наредба, таа едноставно се пишува по if делот. Обликот на оваа наредба е:</para>
+        <code id="eip-56" display="block">if (логички услов)наредба;</code><para id="import-auto-id1166222427803">Доколку пак треба да се извршат повеќе наредби (блок наредби) по if делот, тие се ставаат во блок ограничен со големи загради <emphasis>{ }</emphasis> и наредбата има облик:</para>
+        <code id="eip-132" display="block">if (логички услов)
+  {
+    наредби;
+  }</code><example id="eip-237"><title>Пример 1.</title><code id="eip-767" display="block">scanf (“%i”, &amp;i);
+
+if (i&gt;0)
+     printf (“Vnesen e pozitiven broj\n”); 
+if (i&lt;0)
+{
+     printf (“Vnesen e negativen broj\n”);
+     i = -1;
+}</code></example><para id="import-auto-id1166222345283">
+          <emphasis>ВАЖНО!!!</emphasis>
+        </para>
+        <para id="import-auto-id1166222557203">Доколку по грешка се напише знакот <emphasis effect="bold">;</emphasis> по if делот, тоа значи <emphasis effect="bold">“</emphasis><emphasis>празна наредба</emphasis><emphasis effect="bold">”</emphasis> (наредба што не врши ништо) и if структурата тука завршува, односно <emphasis>не го врши разгранувањето</emphasis>. Наредбата што треба да биде дел од if стуктурата, сега е надвор од неа и ќе се изврши во секој случај, а не само кога условот е точен. Тоа го илустрира следниов пример : </para>
+        <example id="eip-761"><title>Пример 2.</title><code id="eip-714" display="block">printf (“Vnesete cel broj\n”);
+scanf (“%i”, &amp;i);
+if (i&gt;0);
+     printf (“Vnesen e pozitiven broj\n”);</code><para id="eip-737">Оваа програма на екранот ќе печати:</para><para id="eip-25">Vnesete cel broj</para><para id="eip-776">-8</para><para id="eip-252">Vnesen e pozitiven broj</para></example><para id="import-auto-id1166222561484">Ако if стуктурата се користи за избор од две можности, тогаш се користи и делот else од стуктурата if … else. Ако е исполнет зададениот услов (1), се извршува наредбата напишана по if делот, во спротивно, доколку не е исполнет условот (0) се извршува наредбата од делот else.  И во овој случај доколку има по една наредба по if и else деловите таа не мора да се стави во големи загради <emphasis effect="bold">{ }</emphasis>. Ако треба да се напишат повеќе наредби, тие се ставаат во блок ограничен со големи загради <emphasis effect="bold">{ }</emphasis>.</para>
+        <example id="eip-872"><title>Пример 3.</title><code id="eip-590" display="block">scanf (“%i”, &amp;i);
+if (i&gt;0)
+    printf (“Vnesen e pozitiven broj\n”);
+else  
+    printf (“Vnesen e negativen broj\n”);
+if (i&lt;0)
+{
+    printf (“Vnesen e negativen broj\n”);
+    i = -1;
+}
+else
+{
+    printf (“Vnesen e pozitiven broj\n”);
+    i = +1;
+}</code></example><para id="import-auto-id1166223685494">Во програмскиот јазик C може да се вгнездуваат if стуктури. При вгнездувањето на if структурите, треба да се внимава за која if наредба и одговара соодветното else. По дефиниција, else се „врзува“ за најблиското if „над“ него.</para>
+        <example id="eip-348"><title>Пример 4.</title><code id="eip-151" display="block">if  ( i &gt; 0 )
+   printf (“Vnesen e pozitiven broj\n”);
+else
+   if (i &gt; -100)
+         printf (“Vnesen e golem negativen broj\n”);
+   else
+         printf (“Vnesen e mal negativen broj\n”);</code></example><para id="eip-271"><title>ВАЖНО!!!</title></para><para id="eip-426">За да се провери дали една променлива припаѓа во даден интервал, задолжително во условот во if структурата треба да се користи логички оператор.</para><para id="import-auto-id1166222523689">Така на пример, за да се провери дали оценката на еден студент е помала или еднаква на 10, а поголема или еднаква на 6 се користи if структурата која го користи логичкиот оператор &amp;&amp; (ова е логичкото И) :</para><code id="eip-262" display="block">if(10 &gt;= ocena &amp;&amp; ocena &gt;= 6)</code><para id="import-auto-id1166224540466">Но <emphasis>НИКАКО</emphasis> не треба да се користи следната if структура: </para>
+        <code id="eip-918" display="block">if(10 &gt;= ocena &gt;= 6)// GRESHKA </code><para id="import-auto-id1166223062108">Изразот 10 &gt;= ocena &gt;= 6 се пресметува на следниот начин: (10 &gt;= ocena) &gt;= 6 и значи: „Провери дали ocena е помало или еднакво на 10, а потоа провери дали добиениот резултат е поголем или еднаков на 6“. </para>
+        <example id="eip-142"><title>Пример 5.</title><para id="eip-264">Што значи следната наредба, доколку n е кој било број :
+</para><code id="eip-879" display="block">if(n)
+    prosek = suma / n;</code><para id="eip-35">Со оваа наредба е потребно да се пресмета просекот, само доколку n е број различен од нула (делење со 0 не смее да се дозволи). Тривијалниот услов (израз): n секогаш се интерпретира како “точно” колку вредноста на n е „ненулта“, односно како „неточно“ доколку n е нула. </para><para id="eip-895">Поради истата причина се пишуваат и следните услови во if структурите:</para><para id="eip-793">if(izraz)<emphasis effect="bold"/> наместо if(izraz != 0)</para><para id="eip-704">и</para><para id="eip-116">if(!izraz) наместо if(izraz == 0).</para></example></section>
+    </section>
+  </content>
+</document>

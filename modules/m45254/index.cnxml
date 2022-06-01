@@ -1,0 +1,105 @@
+<document xmlns="http://cnx.rice.edu/cnxml">
+  <title>Вежба-2</title>
+<metadata xmlns:md="http://cnx.rice.edu/mdml">
+  <md:content-id>m45254</md:content-id>
+  <md:title>Вежба-2</md:title>
+  <md:abstract/>
+  <md:uuid>ad05cd5b-f626-4c60-bced-f4abbd74651a</md:uuid>
+</metadata>
+
+<content>
+    <section id="id1172401046054">
+      <title>Програмски јазик C –Вежба 2</title>
+      <section id="id1172410484768">
+        <title>Наредби за внес и печатење на податоци</title>
+        <section id="id1172419759254">
+          <title>1. Внес од тастатура со користење на функцијата scanf()</title>
+          <example id="oo-id1172383696790">
+            <code id="eip-347" display="block">#include&lt;stdio.h&gt;
+#include&lt;stdlib.h&gt;
+int main()
+{
+     int a;
+     scanf(“%d”, &amp;a);
+     printf(“Vrednosta na promenlivata a e %d\n”, a);
+     system(“pause”);
+}
+</code></example>
+          <para id="id1172401258357">Доколку се изврши горенаведената програма по внесување на вредноста 10 на екран се печати: </para>
+          <para id="id1172383698497">Vrednosta na promenlivata a e 10</para>
+        </section>
+        <section id="id1172396892895">
+          <title>2. Збир на два цели броја</title>
+          <example id="oo-id1172418229592">
+            <code id="eip-298" display="block">#include&lt;stdio.h&gt;
+#include&lt;stdlib.h&gt;
+int main()
+{
+    int a, b, zbir;
+    printf(“Programa za zbir na dva broja\n”); 
+    printf(“Vesete go prviot sobirok\n”);
+    scanf(“%d”, &amp;a);
+    printf(“Vesete go vtoriot sobirok\n”);
+    scanf(“%d”, &amp;b);
+    zbir = a + b;
+    printf(“Zbirot na broevite %d i %d e %d\n”, a, b, zbir);
+    system(“pause”);
+}
+</code></example>
+          <para id="id1172400714126">Доколку се изврши горенаведената програма по внесување на вредностите 10 и 5 на екран се печати: </para>
+          <para id="id1172386401192">Zbirot na broevite 10 и 5 e 15</para>
+        </section>
+        <section id="id1172405485684">
+          <title>3. Операции на збир, разлика и множење на два цели броја</title>
+          <example id="oo-id1172405790634">
+            <code id="eip-590" display="block">#include&lt;stdio.h&gt;
+#include&lt;stdlib.h&gt;
+int main()
+{
+    int a, b;
+    printf(“Vesete go prviot broj\n”);
+    scanf(“%d”, &amp;a);
+    printf(“Vesete go vtoriot broj\n”);
+    scanf(“%d”, &amp;b);
+    printf(“Zbirot na broevite %d i %d e %d\n”, a, b, a+b);
+    printf(“Razlikata na broevite %d i %d e %d\n”, a, b, a-b);
+    printf(“Proizvodot na broevite %d i %d e %d\n”, a, b, a*b);
+    system(“pause”);
+}
+</code></example>
+          <para id="id1172402536699"/>
+          <para id="id1172391690375">Доколку се изврши горенаведената програма по внесување на вредностите 10 и 5 на екран се печати: </para>
+          <para id="id1172379362607">Zbirot na broevite 10 и 5 e 15</para>
+          <para id="id1172401244007">Razlikata na broevite 10 и 5 e 5</para>
+          <para id="id1172381141278">Proizvodot na broevite 10 и 5 e 50</para>
+        </section>
+        <section id="id7882846">
+          <title>4. Тип на променливи float</title>
+          <example id="oo-id1172392863026">
+            <code id="eip-768" display="block">#include&lt;stdio.h&gt;
+#include&lt;stdlib.h&gt;
+int main()
+{
+    float a, b;
+    printf(“Vesete go prviot broj\n”);
+    scanf(“%f”, &amp;a);
+    printf(“Vesete go vtoriot broj. Toj treba da bide razlicen od 0\n”);
+    scanf(“%f”, &amp;b);
+    printf(“Kolicnikot na broevite %f i %f e %f\n”, a, b, a/b);
+    system(“pause”);
+}
+</code></example>
+          <para id="id1172392890580">Доколку се изврши горенаведената програма по внесување на вредностите 10 и 8 на екран се печати: </para>
+          <para id="id1172378451922">Kolicnikot na broevite 10.0 и 8.0 e 1.25 </para>
+          <para id="id1172383597964">
+            <note id="id1172378616770" type="Note">Заблешка: Внимавајте на типот на променливите и специјалните знаци %f.</note>
+            
+            
+            
+            
+          </para>
+        </section>
+      </section>
+    </section>
+  </content>
+</document>
