@@ -1,89 +1,26 @@
-<col:collection xmlns="http://cnx.rice.edu/collxml" xmlns:col="http://cnx.rice.edu/collxml" xml:lang="en">
+<?xml version="1.0"?>
+<col:collection xmlns="http://cnx.rice.edu/collxml" xmlns:col="http://cnx.rice.edu/collxml" xml:lang="en" authors="Liljana Stefanovska">
   <metadata xmlns:md="http://cnx.rice.edu/mdml" mdml-version="0.5">
-  <md:content-id>col11379</md:content-id>
-  <md:title>ВОВЕД ВО ПРОГРАМИРАЊЕ</md:title>
-  
-  
-  <md:license url="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution License 3.0</md:license>
-  <md:language>mk</md:language>
-
-  
-
-  
-  
-  
-  
-  
-
-  <md:uuid>0a1ce01f-1812-487c-9ce6-f3315a422c09</md:uuid>
-<md:slug>voved-vo-programiranje</md:slug>
-</metadata>
-
+    <md:content-id>col11379</md:content-id>
+    <md:title>&#x412;&#x41E;&#x412;&#x415;&#x414; &#x412;&#x41E; &#x41F;&#x420;&#x41E;&#x413;&#x420;&#x410;&#x41C;&#x418;&#x420;&#x410;&#x40A;&#x415;</md:title>
+    <md:license url="http://creativecommons.org/licenses/by/3.0/">Creative Commons Attribution License 3.0</md:license>
+    <md:language>mk</md:language>
+    <md:uuid>0a1ce01f-1812-487c-9ce6-f3315a422c09</md:uuid>
+    <md:slug>voved-vo-programiranje</md:slug>
+  </metadata>
   <col:content>
-    
-      <col:module document="m41558"/>
-        
-      
-    
-    
-      <col:module document="m45178"/>
-        
-      
-    
-    
-      <col:module document="m45180"/>
-        
-      
-    
-    
-      <col:module document="m45182"/>
-        
-      
-    
-    
-      <col:module document="m45254"/>
-        
-      
-    
-    
-      <col:module document="m47805"/>
-        
-      
-    
-    
-      <col:module document="m47824"/>
-        
-      
-    
-    
-      <col:module document="m47823"/>
-        
-      
-    
-    
-      <col:module document="m47835"/>
-        
-      
-    
-    
-      <col:module document="m47838"/>
-        
-      
-    
-    
-      <col:module document="m47843"/>
-        
-      
-    
-    
-      <col:module document="m47853"/>
-        
-      
-    
-    
-      <col:module document="m46134"/>
-        
-      
-    
+    <col:module document="m41558"/>
+    <col:module document="m45178"/>
+    <col:module document="m45180"/>
+    <col:module document="m45182"/>
+    <col:module document="m45254"/>
+    <col:module document="m47805"/>
+    <col:module document="m47824"/>
+    <col:module document="m47823"/>
+    <col:module document="m47835"/>
+    <col:module document="m47838"/>
+    <col:module document="m47843"/>
+    <col:module document="m47853"/>
+    <col:module document="m46134"/>
   </col:content>
 </col:collection>
